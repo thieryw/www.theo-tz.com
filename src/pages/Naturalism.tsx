@@ -10,17 +10,17 @@ import { useTranslation, declareComponentKeys } from "i18n";
 import { Gallery } from "components/Gallery";
 
 const jpg = {
-	"france": jpegFiles.directories["1-Naturalisme"].directories["1-France"].directories,
-	"antilles": jpegFiles.directories["1-Naturalisme"].directories["2- Antilles"].directories,
-	"westCanada": jpegFiles.directories["1-Naturalisme"].directories["3- Ouest canadien"].directories,
-	"reunionMaurice": jpegFiles.directories["1-Naturalisme"].directories["4-Réunion _ Maurice"].directories,
+	"france": jpegFiles.directories["Naturalisme"].directories["France"].directories,
+	"antilles": jpegFiles.directories["Naturalisme"].directories["Antilles"].directories,
+	"westCanada": jpegFiles.directories["Naturalisme"].directories["Ouest-canadien"].directories,
+	"reunionMaurice": jpegFiles.directories["Naturalisme"].directories["Reunion-Maurice"].directories,
 };
 
 const webp = {
-	"france": webpFiles.directories["1-Naturalisme"].directories["1-France"].directories,
-	"antilles": webpFiles.directories["1-Naturalisme"].directories["2- Antilles"].directories,
-	"westCanada": webpFiles.directories["1-Naturalisme"].directories["3- Ouest canadien"].directories,
-	"reunionMaurice": webpFiles.directories["1-Naturalisme"].directories["4-Réunion _ Maurice"].directories,
+	"france": webpFiles.directories["Naturalisme"].directories["France"].directories,
+	"antilles": webpFiles.directories["Naturalisme"].directories["Antilles"].directories,
+	"westCanada": webpFiles.directories["Naturalisme"].directories["Ouest-canadien"].directories,
+	"reunionMaurice": webpFiles.directories["Naturalisme"].directories["Reunion-Maurice"].directories,
 };
 
 export type NaturalismProps = {

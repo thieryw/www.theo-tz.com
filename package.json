@@ -46,7 +46,7 @@
     "renameImages": "ts-node --skip-project src/bin/renameImages.ts",
     "convertImages": "ts-node --skip-project src/bin/convertImages.ts",
     "generateImgExports": "ts-node --skip-project src/bin/generateImageUrlExports.ts",
-    "linkInHouseDep": "ts-node --skip-project src/bin/linkInHouseDep.ts"
+    "postinstall": "yarn convertImages && yarn generateImgExports"
   },
   "eslintConfig": {
     "extends": [

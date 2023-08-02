@@ -6,40 +6,46 @@ const opts: RouterOpts = {
 	"scrollToTop": false
 }
 
-const naturalism = defineRoute("/naturalisme");
-const events = defineRoute("/evenements");
-const portraits = defineRoute("/portraits");
-const reportage = defineRoute("/reportage");
+/**
+ * Examples:
+ * '/wwww.theo-tz.com' when "homepage": "https://xxx.yy/www.theo-tz.com" in package.json
+ * '' when "homepage": "https://xxx.yy" in package.json or no homepage at all.  
+ **/
+const publicUrl = process.env["PUBLIC_URL"];
+
+const naturalism = defineRoute(publicUrl + "/naturalisme");
+const events = defineRoute(publicUrl + "/evenements");
+const portraits = defineRoute(publicUrl + "/portraits");
+const reportage = defineRoute(publicUrl + "/reportage");
 
 export const routeDefs = {
-	"home": defineRoute("/"),
-	"legal": defineRoute("/mentions-legal"),
-	"auteur": defineRoute("/auteur"),
+	"home": defineRoute(publicUrl || "/"),
+	"legal": defineRoute(publicUrl + "/mentions-legal"),
+	"auteur": defineRoute(publicUrl + "/auteur"),
 	naturalism,
-	"france": naturalism.extend("/france"),
-	"antilles": naturalism.extend("/antilles"),
-	"westCanada": naturalism.extend("/ouest-canadien"),
-	"reunionMaurice": naturalism.extend("/reunion-Maurice"),
+	"france": naturalism.extend(publicUrl + "/france"),
+	"antilles": naturalism.extend(publicUrl + "/antilles"),
+	"westCanada": naturalism.extend(publicUrl + "/ouest-canadien"),
+	"reunionMaurice": naturalism.extend(publicUrl + "/reunion-Maurice"),
 	events,
-	"anduzeJazz": events.extend("/anduze-Jazz-Camp"),
-	"montpellierJazz": events.extend("/montpellier-Jazz-Week"),
-	"lindyHop": events.extend("/lindy-Hop-Summercamp"),
-	"airstep": events.extend("/airsteps-classic-routines"),
+	"anduzeJazz": events.extend(publicUrl + "/anduze-Jazz-Camp"),
+	"montpellierJazz": events.extend(publicUrl + "/montpellier-Jazz-Week"),
+	"lindyHop": events.extend(publicUrl + "/lindy-Hop-Summercamp"),
+	"airstep": events.extend(publicUrl + "/airsteps-classic-routines"),
 	portraits,
-	"confluence": portraits.extend("/quatuor-confluence"),
-	"etienne": portraits.extend("/etienne"),
-	"melodie": portraits.extend("/melodie"),
-	"annaJonatan": portraits.extend("/anna-jonatan"),
-	"duoKanto": portraits.extend("/duo-kanto"),
+	"confluence": portraits.extend(publicUrl + "/quatuor-confluence"),
+	"etienne": portraits.extend(publicUrl + "/etienne"),
+	"melodie": portraits.extend(publicUrl + "/melodie"),
+	"annaJonatan": portraits.extend(publicUrl + "/anna-jonatan"),
+	"duoKanto": portraits.extend(publicUrl + "/duo-kanto"),
 	reportage,
-	"brameCerf": reportage.extend("/le-brame-du-cerf-dans-les-Cevennes"),
-	"dolphin": reportage.extend("/le-grand-dauphin-en-mediterranee"),
-	"papetier": reportage.extend("/atelier-papetier"),
-	"wolf": reportage.extend("/le-retour-du-loup-en-dordogne"),
-	"pandemic": reportage.extend("/5-24h-dans-la-vie-d_une-etudiante-en-pandemie"),
-	"climat": reportage.extend("/marche-pour-le-climat"),
-	"urban": defineRoute("/urbain")
-
+	"brameCerf": reportage.extend(publicUrl + "/le-brame-du-cerf-dans-les-Cevennes"),
+	"dolphin": reportage.extend(publicUrl + "/le-grand-dauphin-en-mediterranee"),
+	"papetier": reportage.extend(publicUrl + "/atelier-papetier"),
+	"wolf": reportage.extend(publicUrl + "/le-retour-du-loup-en-dordogne"),
+	"pandemic": reportage.extend(publicUrl + "/5-24h-dans-la-vie-d_une-etudiante-en-pandemie"),
+	"climat": reportage.extend(publicUrl + "/marche-pour-le-climat"),
+	"urban": defineRoute(publicUrl + "/urbain")
 };
 
 

@@ -15,7 +15,7 @@
     "i18nifty": "^1.4.0",
     "react-art-gallery": "^0.0.12",
     "type-route": "^1.0.1",
-    "github-pages-plugin-for-type-route": "^0.1.0",
+    "github-pages-plugin-for-type-route": "^0.1.1",
     "powerhooks": "^0.26.3",
     "tss-react": "^4.7.5",
     "@mui/material": "^5.11.12",

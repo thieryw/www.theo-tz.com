@@ -1,9 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, createContext, useState, useRef } from "react";
 import type { ReactNode } from "react";
 import { getScrollableParent } from "powerhooks/getScrollableParent"
 import { useDomRect } from "powerhooks/useDomRect";
-import { Evt } from "evt";
 import { makeStyles } from "theme";
+import { isTouchDevice } from "../tools/isTouchDevice";
+
+type GlobalStateContextType = {
+	globalState: GlobalStateType;
+	setGlobalState: React.Dispatch<React.SetStateAction<GlobalStateType>>;
+};
+
+export type GlobalStateType = {
+	isScrollable: boolean;
+}
+export const ScrollContext = createContext<GlobalStateContextType | undefined>(undefined);
 
 
 export type SmoothScrollProviderProps = {
@@ -17,49 +27,91 @@ export type SmoothScrollProviderProps = {
 export function SmoothScrollProvider(props: SmoothScrollProviderProps) {
 	const { children } = props;
 	const {
-		domRect: { height }, ref
+		domRect: { height }, ref: contentWrapperRef
 	} = useDomRect();
+	const rootRef = useRef<HTMLDivElement>(null);
+	const [globalState, setGlobalState] = useState<GlobalStateType>({ "isScrollable": true });
+	const [scrollTopWhenNotIsScrollable, setCurrentScrollTop] = useState<number | undefined>(0);
 
 	useEffect(() => {
+		if(isTouchDevice()){
+			return;
+		}
 
 		const scrollableParent = getScrollableParent({
 			"doReturnElementIfScrollable": true,
-			"element": ref.current
+			"element": contentWrapperRef.current
 		});
 
-		const ctx = Evt.newCtx();
-
-		Evt.from(ctx, scrollableParent, "scroll").attach(() => {
-			ref.current.style.top = `-${scrollableParent.scrollTop}px`;
-		});
-
-
-	}, [ref, height])
-
-	const { classes } = useStyles({ height }, { props });
-
-	return <div className={classes.root}>
-		<div ref={ref} className={classes.contentWrapper}>
-			{
-				children
+		(() => {
+			if (!rootRef.current || height === 0) {
+				return;
 			}
 
-		</div>
+			if (!globalState.isScrollable) {
+				setCurrentScrollTop(scrollableParent.scrollTop);
+				rootRef.current.style.height = "100vh";
+				return;
+			}
+			setCurrentScrollTop(undefined);
 
-	</div>
+			rootRef.current.style.height = `${height}px`;
+
+			scrollableParent.scrollTo({
+				"top": scrollTopWhenNotIsScrollable,
+			});
+		})()
+
+		if (!globalState.isScrollable) {
+			return;
+		}
+
+		const handleScroll = () => {
+			contentWrapperRef.current.style.top = `-${scrollableParent.scrollTop}px`;
+		};
+
+		scrollableParent.addEventListener("scroll", handleScroll)
+
+		return () => {
+			scrollableParent.removeEventListener("scroll", handleScroll)
+		}
+
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [contentWrapperRef, height, globalState])
+
+	const { classes } = useStyles({ height, "isScrollable": globalState.isScrollable, "isTouchDevice": isTouchDevice() }, { props });
+
+	return <ScrollContext.Provider value={{ globalState, setGlobalState }} >
+		<div ref={rootRef} className={classes.root}>
+			<div ref={contentWrapperRef} className={classes.contentWrapper}>
+				{
+					children
+				}
+
+			</div>
+
+		</div>
+	</ScrollContext.Provider>
 
 }
 
 
-const useStyles = makeStyles<{ height: number }>()((...[, { height }]) => {
+const useStyles = makeStyles<{ height: number; isScrollable: boolean; isTouchDevice: boolean; }>()((...[, { height, isScrollable, isTouchDevice }]) => {
 	return ({
 		"root": {
-			height
+			...(isTouchDevice ? {} : {
+				height,
+				"overflow": isScrollable ? undefined : "hidden"
+			}),
+
 		},
 		"contentWrapper": {
-			"position": "fixed",
-			"transition": "top 500ms",
-			"transitionTimingFunction": "cubic-bezier(.15,.67,.15,.97)"
+			...(isTouchDevice ? {} : {
+				"position": "fixed",
+				"transition": "top 500ms",
+				"transitionTimingFunction": "cubic-bezier(.15,.67,.15,.97)"
+			})
 		}
 	})
 });

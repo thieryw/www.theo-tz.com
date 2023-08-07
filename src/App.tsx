@@ -1,11 +1,8 @@
 import { useMemo } from "react";
-import { Header } from "./components/Header";
 import { routes, useRoute, groups } from "./router";
 import { useTranslation, declareComponentKeys } from "i18n";
 import signature from "./assets/png/signature.png";
 import { makeStyles, breakpointsValues, Text } from "./theme";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import { Home } from "./pages/Home";
 import { Naturalism } from "./pages/Naturalism";
 import { Biography } from "./pages/Biography";
@@ -15,6 +12,7 @@ import instagramIconUrl from "./assets/svg/instagram.svg";
 import facebookIconUrl from "./assets/svg/facebook.svg";
 import mailIconUrl from "./assets/svg/mail.svg";
 import MuiLink from "@mui/material/Link";
+import { Header } from "components/Header";
 
 
 export function App() {
@@ -62,18 +60,19 @@ export function App() {
         <Header
           links={links}
           title={<img className={classes.logo} src={signature} alt="logo" />}
-          position="fixed"
-          behavior="smart"
-          scrollToTop={true}
           logoLinks={
             [
               {
-                "href": "",
-                "logo": <FacebookIcon className={classes.socialMediaIcon} />,
+                "href": "https://www.facebook.com/theotzelepoglouphotography/",
+                "logo": facebookIconUrl,
               },
               {
-                "href": "lkj",
-                "logo": <InstagramIcon className={classes.socialMediaIcon} />
+                "href": "https://www.instagram.com/theo_tz_wildlife/",
+                "logo": instagramIconUrl
+              },
+              {
+                "href": "mailto:theo.tzelepoglou@gmail.com",
+                "logo": mailIconUrl
               }
             ]
           }
@@ -134,7 +133,7 @@ const useStyles = makeStyles()((theme) => {
       "flex": "1 0 auto"
     },
     "logo": {
-      "height": theme.spacing(8)
+      "height": theme.spacing(10)
     },
     "header": {
       "marginBottom": 3

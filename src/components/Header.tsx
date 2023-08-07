@@ -1,14 +1,9 @@
-import { memo, useState, useEffect, useRef } from "react";
+import { useState, memo, useRef, useContext } from 'react';
 import type { ReactNode } from "react";
-import { makeStyles } from "../theme";
-import { Text } from "../theme";
-import { breakpointsValues } from "onyxia-ui/lib/breakpoints"
-import UnfoldIcon from '@mui/icons-material/FormatLineSpacing';
-import { useDomRect } from "powerhooks/useDomRect";
-import { useConstCallback } from "powerhooks";
-import { useClickAway } from "powerhooks";
-import { Evt } from "evt";
-import { getScrollableParent } from "powerhooks/getScrollableParent";
+import { makeStyles, Text, breakpointsValues } from "../theme";
+import { useConstCallback } from "powerhooks/useConstCallback";
+import { ScrollContext } from "./SmoothScrollProvider";
+import { Logo } from "./Logo";
 
 export type HeaderProps = {
 	links: {
@@ -24,310 +19,211 @@ export type HeaderProps = {
 	}[],
 	className?: string;
 	classes?: Partial<ReturnType<typeof useStyles>["classes"]>;
-	position?: "sticky" | "fixed";
-	behavior?: "smart";
-	scrollToTop?: boolean;
 }
 
+export function Header(props: HeaderProps) {
+	const { links, className, logoLinks, title } = props;
+	const [isOpen, setIsOpen] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+	const context = useContext(ScrollContext);
 
 
+	const { classes, cx, theme } = useStyles({ isOpen }, { props });
 
-
-export const Header = memo((props: HeaderProps) => {
-	const { links, title, className, logoLinks, position, behavior, scrollToTop } = props;
-
-	const [isMenuUnfolded, setIsMenuUnfolded] = useState(false);
-	const [isMenuVisible, setIsMenuVisible] = useState(true);
-
-
-
-	const { domRect: {
-		height: headerHeight
-	}, ref: headerRef } = useDomRect();
-
-	const {
-		domRect: {
-			height: linksHeight
-		},
-		ref: linksRef
-
-
-	} = useDomRect();
-
-	const { classes, cx } = useStyles({
-		headerHeight,
-		isMenuUnfolded,
-		linksHeight,
-		isMenuVisible,
-		position,
-		behavior,
-		"hasTitle": title !== undefined
-	}, { props });
-
-	const { ref } = useClickAway({
-		"onClickAway": () => {
-			if (!isMenuUnfolded) {
-				return;
-			}
-			setIsMenuUnfolded(false);
+	const toggleMenu = useConstCallback(() => {
+		setIsOpen(!isOpen);
+		if (context === undefined) {
+			return;
 		}
+
+		context.setGlobalState({ "isScrollable": !isOpen ? false : true})
 	})
 
 
-	const toggleMenu = useConstCallback(() => {
-		setIsMenuUnfolded(!isMenuUnfolded)
-	});
+	const handleMenuItemClick = useConstCallback(() => {
 
-	useEffect(() => {
-		if (behavior === undefined || headerHeight === 0) {
-			return;
-		}
+		setIsOpen(false);
+		context?.setGlobalState({ "isScrollable": true});
+	})
 
-		const scrollableParent = getScrollableParent({
-			"doReturnElementIfScrollable": true,
-			"element": ref.current
-		});
-		if (scrollableParent === null) {
-			return;
-		}
-		const ctx = Evt.newCtx();
-		let previousScrollTop = 0;
-		let relativeScrollTop = 0;
-		Evt.from(ctx, scrollableParent, "scroll").attach(() => {
-			if (scrollableParent.scrollTop > previousScrollTop) {
-				if (relativeScrollTop > headerHeight) {
-					setIsMenuVisible(false);
-				} else {
-					relativeScrollTop = relativeScrollTop + scrollableParent.scrollTop - previousScrollTop;
-				}
-			}
-			if (scrollableParent.scrollTop < previousScrollTop) {
-				setIsMenuVisible(true);
-				relativeScrollTop = 0;
-			}
-			previousScrollTop = scrollableParent.scrollTop;
-		})
 
-	}, [headerHeight, ref, behavior])
+	return (
+		<div ref={ref} className={cx(classes.root, className)}>
+			<div className={classes.buttonAndTitleWrapper}>
+				<button
+					className={classes.button}
+					aria-haspopup="true"
+					aria-expanded={isOpen}
+					aria-label="drop down menu button"
+					onClick={toggleMenu}
+				>
+					<div className={cx(classes.hamburgerLine1, classes.hamburgerLine)}></div>
+					<div className={cx(classes.hamburgerLine2, classes.hamburgerLine)}></div>
+				</button>
 
-	return <header className={cx(classes.root, className)} ref={headerRef} >
-		<div ref={ref} className={classes.headerInner}>
-			<div className={classes.title}>{title}</div>
-
-			<div className={classes.linkAndLogoLinkWrapper}>
-				<Links
-					className={classes.links}
-					links={links}
-					classes={{
-						"link": classes.link,
-						"linkWrapper": classes.linkWrapper,
-						"linkUnderline": classes.linkUnderline
-					}}
-					scrollToTop={scrollToTop ?? false}
-				/>
+			</div>
+			<div className={classes.menu} role="menu">
 				{
-					logoLinks !== undefined &&
-					<div className={classes.logoLinks}>
-						{
-							logoLinks.map(({ logo, ...rest }) => <a key={rest.href} className={classes.logoLink} {...rest}>{logo}</a>)
-						}
+					title !== undefined && theme.windowInnerWidth < breakpointsValues.md &&
+					<div className={classes.titleWrapper}>
+						{title}
 					</div>
 				}
-
-				<div className={classes.unfoldIcon} onClick={toggleMenu}>
-					<UnfoldIcon />
-				</div>
-			</div>
-
-			<div className={classes.smallDeviceLinksWrapper}>
-				<div className={classes.smallDeviceLinksInnerWrapper} ref={linksRef}>
-					<Links
-						scrollToTop={scrollToTop ?? false}
-						links={links}
-						className={classes.smallDeviceLinks}
-						classes={{
-							"link": classes.smallDeviceLink,
-							"linkWrapper": classes.smallDeviceLinkWrapper,
-							"linkUnderline": classes.smallDeviceLinkUnderline
-						}}
-					/>
+				<div className={classes.linksWrapper}>
+					{
+						links.map(({ href, label, onClick }) => <div
+							onClick={handleMenuItemClick}
+							key={label}
+							className={classes.linkWrapper}
+						><Link
+								href={href}
+								onClick={onClick}
+								label={label}
+							/></div>)
+					}
 
 				</div>
+				<div className={classes.titleAndContactWrapper}>
+					{
+						title !== undefined && theme.windowInnerWidth >= breakpointsValues.md &&
+						<div className={classes.titleWrapper}>
+							{title}
+						</div>
+					}
+
+					{
+						logoLinks !== undefined &&
+						<div className={classes.logoLinks}>
+							{
+								logoLinks.map(({ logo, ...rest }) => <a
+									key={rest.href}
+									className={classes.logoLink} {...rest}
+								>{typeof logo === "string" ?
+									<Logo width={40} logoUrl={logo} /> :
+									logo
+									}
+								</a>)
+							}
+						</div>
+					}
+
+
+				</div>
+
 			</div>
 
 		</div>
+	);
+};
 
-	</header>
-})
 
-const useStyles = makeStyles<{
-	headerHeight: number;
-	isMenuUnfolded: boolean;
-	linksHeight: number;
-	isMenuVisible: boolean;
-	position: "sticky" | "fixed" | undefined;
-	behavior: "smart" | undefined;
-	hasTitle: boolean;
-}>()(
-	(theme, { headerHeight, isMenuUnfolded, linksHeight, isMenuVisible, position, behavior, hasTitle }) => ({
+const useStyles = makeStyles<{ isOpen: boolean }>()((theme, { isOpen }) => {
+	const toggleButtonWidthAndHeight = 40
+	return ({
 		"root": {
-			...theme.spacing.topBottom("padding", `${theme.spacing(3)}px`),
-			position,
-			"zIndex": 2,
-			...(behavior === "smart" ? {
-				"top": !isMenuVisible ? -(headerHeight + 50) : 0,
-				"transition": "top 300ms",
-			} : {
-				"top": 0
-			}),
-			"background": "rgba(0,0,0,80%)",
-			"width": "100%"
-		},
-		"headerInner": {
-			...theme.spacing.rightLeft("padding", `${theme.spacing(3)}px`),
-			"display": "flex",
-			"position": "relative",
-			"alignItems": "center",
-			"justifyContent": hasTitle ? "space-between" : "center"
-		},
-		"unfoldIcon": {
-			"display": "none",
-			"pointerEvents": "none",
-			"color": theme.colors.palette.light.greyVariant2,
-			...(theme.windowInnerWidth < breakpointsValues.md ? {
-				"display": "block",
-				"pointerEvents": "unset"
-			} : {}),
-			"marginLeft": theme.spacing(6)
 
+			"zIndex": 4000,
+			"position": "fixed",
+			"top": 0,
+			"height": isOpen ? "100vh" : undefined,
+			"width": "100vw"
 		},
-		"smallDeviceLinksWrapper": {
-			"position": "absolute",
-			"background": "rgba(0,0,0,80%)",
-			"top": headerHeight - theme.spacing(3),
-			"left": -theme.spacing(2),
-			"width": "100vw",
-			"opacity": 0,
-			"height": 0,
-			"overflow": "hidden",
-			"pointerEvents": "none",
+		"buttonAndTitleWrapper": {
+		},
+		"linksWrapper": {
 			"display": "flex",
 			"flexDirection": "column",
 			"alignItems": "flex-start",
-			"justifyContent": "center",
-			"transition": "height 300ms, border-top-color 300ms",
-			...theme.spacing.rightLeft("padding", `${theme.spacing(3)}px`),
-			...(theme.windowInnerWidth < breakpointsValues.md ? {
-				"borderTop": isMenuUnfolded ? `solid 1px ${theme.colors.useCases.typography.textSecondary}` : undefined,
-				"height": isMenuUnfolded && isMenuVisible ? linksHeight : 0,
-				"opacity": 0.94,
-				"pointerEvents": "unset"
-			} : {})
+			...theme.spacing.topBottom("margin", `${theme.spacing(7)}px`)
+		},
+		"linkWrapper": {
+			...theme.spacing.topBottom("margin", `${theme.spacing(2)}px`)
+
 		},
 
-		"smallDeviceLinksInnerWrapper": {
-			...theme.spacing.topBottom("padding", `${theme.spacing(6)}px`)
-		},
-
-		"smallDeviceLinks": {
-			"flexDirection": "column",
-			"display": "flex",
-			...(theme.windowInnerWidth < breakpointsValues.md ? {
-				"opacity": 1,
-				"pointerEvents": "unset"
-			} : {})
-		},
 		"logoLinks": {
-			"marginLeft": theme.spacing(5)
-		},
-		"linkAndLogoLinkWrapper": {
 			"display": "flex",
-			"alignItems": "center"
-
-
+			"marginTop": theme.windowInnerWidth < breakpointsValues.md ? undefined : theme.spacing(6),
 		},
-		"links": {},
 		"logoLink": {
-			...theme.spacing.rightLeft("margin", `${theme.spacing(2)}px`)
-		},
-		"title": {},
-		"link": {},
-		"linkWrapper": {},
-		"linkUnderline": {},
-		"smallDeviceLink": {},
-		"smallDeviceLinkWrapper": {},
-		"smallDeviceLinkUnderline": {},
-
-	})
-)
-
-const { Links } = (() => {
-
-	type LinksProps = {
-		links: HeaderProps["links"];
-		className?: string;
-		classes?: {
-			linkWrapper?: string;
-			link?: string;
-			linkUnderline?: string;
-		};
-		scrollToTop: boolean;
-	}
-
-	const useStyles = makeStyles()(
-		theme => ({
-			"links": {
-				"display": "flex",
-				"justifyContent": "center",
-				"flex": 1,
-				"flexWrap": "wrap",
-				...(theme.windowInnerWidth < breakpointsValues.md ? {
-					"display": "none",
-					"pointerEvents": "none"
-
-				} : {})
-			},
-			"linkWrapper": {
-				"display": "flex",
-
+			...theme.spacing.rightLeft("margin", `${theme.spacing(4)}px`),
+			"transition": "transform 300ms",
+			":hover": {
+				"transform": "scale(1.2)",
 			}
-		})
-	)
+		},
+		"titleWrapper": {
+			"marginBottom": theme.windowInnerWidth < breakpointsValues.md ? undefined : theme.spacing(6),
 
 
-	const Links = memo((props: LinksProps) => {
+		},
+		"titleAndContactWrapper": {
+			"display": "flex",
+			"flexDirection": "column",
+			"alignItems": "center",
+		},
+		"button": {
+			"position": "absolute",
+			"height": toggleButtonWidthAndHeight,
+			"width": toggleButtonWidthAndHeight,
+			"zIndex": 4001,
+			"background": "none",
+			"border": "none",
+			"cursor": "pointer",
+			"top": theme.spacing(6),
+			"right": theme.spacing(6),
+			"padding": 0
+		},
+		"menu": {
+			"position": "absolute",
+			"overflowY": "auto",
+			"overflowX": "hidden",
+			"width": "100%",
+			"height": "100vh",
+			"top": 0,
+			"left": 0,
+			"background": theme.colors.palette.customGradientColor,
+			"display": "flex",
+			"alignItems": "center",
+			//"justifyContent": theme.windowInnerWidth < breakpointsValues.md ? "center" : "space-between",
+			"justifyContent": "space-between",
+			"transition": "opacity 500ms",
+			"opacity": isOpen ? 1 : 0,
+			"pointerEvents": isOpen ? undefined : "none",
+			...(theme.windowInnerWidth < breakpointsValues.md ? {
+				"flexDirection": "column",
+				...theme.spacing.topBottom("padding", `${theme.spacing(8)}px`)
+			} : {
+				...theme.spacing.rightLeft("padding", `${theme.spacing(10)}px`),
+			})
+		},
+		"hamburgerLine": {
+			"transition": "transform 300ms, top 300ms, left 300ms",
+			"position": "absolute",
+			"left": isOpen ? "50%" : undefined,
+			"width": toggleButtonWidthAndHeight,
+			"height": 2,
+			"backgroundColor": theme.colors.palette[isOpen ? "light" : "dark"].greyVariant1
+		},
+		"hamburgerLine1": {
+			"top": isOpen ? "50%" : 14,
 
-		const { links, className, classes: classesProp, scrollToTop } = props;
-
-		const { classes, cx } = useStyles();
-
-		return <div className={cx(classes.links, className)}>{
-			links.map(({ href, label, onClick }) => <div key={label} className={classes.linkWrapper}><Link
-				href={href}
-				label={label}
-				onClick={onClick}
-				classes={{
-					"link": classesProp?.link,
-					"underline": classesProp?.linkUnderline
-				}}
-				className={classesProp?.linkWrapper}
-				scrollToTop={scrollToTop}
-			/></div>)
-
-		}</div>
-
+			"transform": isOpen ? "translate(-50%, -50%) rotate(45deg)" : undefined,
+			//"marginBottom": 15
+		},
+		"hamburgerLine2": {
+			"top": isOpen ? "50%" : 26,
+			"transform": isOpen ? "translate(-50%, -50%) rotate(-45deg)" : undefined,
+		}
 
 	})
-
-	return { Links };
-})();
+})
 
 
 const { Link } = (() => {
 
 	type LinkProps = HeaderProps["links"][number] & {
 		className?: string;
-		scrollToTop: boolean;
 		classes?: {
 			link?: string;
 			underline?: string;
@@ -337,7 +233,7 @@ const { Link } = (() => {
 
 
 	const Link = memo((props: LinkProps) => {
-		const { href, label, onClick, className, classes: classesProp, scrollToTop } = props;
+		const { href, label, onClick, className, classes: classesProp } = props;
 		const { classes, cx } = useStyles()
 		const ref = useRef<HTMLDivElement>(null);
 
@@ -346,10 +242,11 @@ const { Link } = (() => {
 		return <div
 			className={cx(classes.root, className)}
 			ref={ref}
+			role="menuitem"
 		>
 			<a
 				href={href}
-				onClick={scrollToTop ? undefined : onClick}
+				onClick={onClick}
 				className={classes.link}
 			>
 				<Text
@@ -374,30 +271,20 @@ const { Link } = (() => {
 					"display": "flex",
 					"flexDirection": "column",
 					"position": "relative",
-					...theme.spacing.topBottom("margin", `${theme.spacing(3)}px`),
 					"cursor": "none",
-					...theme.spacing.rightLeft("margin", `${theme.spacing(4)}px`),
 					[`&:hover .${classes.underline}`]: {
-						"width": "110%",
-						...(theme.windowInnerWidth < breakpointsValues.md ? {
-							"width": "50%",
-						} : {})
+						"width": "105%",
 					},
-					...(theme.windowInnerWidth < breakpointsValues.md ? {
-						...theme.spacing.topBottom("margin", `${theme.spacing(3)}px`)
-					} : {
-
-					})
 				},
 				"link": {
-					"textDecoration": "none"
+					"textDecoration": "none",
 
 				},
 				"underline": {
 					"width": 0,
 					"position": "relative",
-					"left": theme.windowInnerWidth >= breakpointsValues.md ? "-5%" : "5%",
 					"top": theme.spacing(1),
+					"left": theme.spacing(2),
 					"height": 1,
 					"backgroundColor": theme.colors.palette.light.greyVariant2,
 					"transition": "width 200ms",
@@ -409,7 +296,15 @@ const { Link } = (() => {
 				"text": {
 					...theme.spacing.rightLeft("padding", `${theme.spacing(2)}px`),
 					...theme.typography.variants["navigation label"].style,
-					"color": theme.colors.palette.light.greyVariant2
+					"color": theme.colors.palette.light.greyVariant2,
+					...(() => {
+						const value = theme.windowInnerWidth >= breakpointsValues.md ? "2.3rem" : "1.5rem";
+						return {
+							"fontSize": value,
+							"lineHeight": value,
+
+						}
+					})()
 				}
 			}
 		}

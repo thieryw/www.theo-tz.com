@@ -112,7 +112,7 @@ const useStyles = makeStyles()(() => {
 			"position": "relative"
 		},
 		"title": {
-			"zIndex": 4000,
+			"zIndex": 4,
 		},
 		"pageContent": {
 		}

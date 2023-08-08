@@ -44,6 +44,7 @@ export function Header(props: HeaderProps) {
 
 		setIsOpen(false);
 		context?.setGlobalState({ "isScrollable": true});
+		context?.scrollToTop();
 	})
 
 

@@ -3,7 +3,7 @@ import { makeStyles, Text, breakpointsValues } from "theme";
 import { LinkButton } from "components/LinkButton";
 import { CardLink } from "components/CardLink";
 import mokImage from "assets/img/gallery/Naturalisme/Antilles/1_12/miniature_1_12.jpg";
-import mokImage2 from "assets/img/gallery/Reportages/Le-brame-du-cerf dans-les-Cévennes/23/miniature_23.jpg";
+import mokImage2 from "assets/img/gallery/Reportages/Le-brame-du-cerf-dans-les-Cévennes/23/miniature_23.jpg";
 import { SexyColumnLayout } from "components/SexyColumnLayout";
 import { routes } from "../router";
 

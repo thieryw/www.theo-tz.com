@@ -6,6 +6,7 @@ import { makeStyles, breakpointsValues, Text } from "./theme";
 import { Home } from "./pages/Home";
 import { Naturalism } from "./pages/Naturalism";
 import { Biography } from "./pages/Biography";
+import { Reportages } from "./pages/Reportages";
 import { SmoothScrollProvider } from "./components/SmoothScrollProvider";
 import { Footer } from "./components/Footer";
 import instagramIconUrl from "./assets/svg/instagram.svg";
@@ -82,6 +83,7 @@ export function App() {
           {route.name === "home" && <Home />}
           {groups.naturalism.has(route) && <Naturalism route={route} />}
           {route.name === "auteur" && <Biography />}
+          {route.name === "reportage" && <Reportages />}
         </div>
         <Footer
           className={classes.footer}

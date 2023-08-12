@@ -20,7 +20,8 @@ export const {
 	typeof import ("App").i18n |
 	typeof import ("pages/Naturalism").i18n |
 	typeof import ("pages/Biography").i18n |
-	typeof import ("pages/Home").i18n
+	typeof import ("pages/Home").i18n |
+	typeof import ("pages/Reportages").i18n
 >()(
 	{ languages, fallbackLanguage },
 	{
@@ -81,7 +82,25 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"authorLinkLabel": "AUTEUR",
 				"exploreButton": "EXPLORER",
 				"naturTitle": "Naturalisme",
-				"naturParagraph": "la vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible."
+				"naturParagraph": "la vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible.",
+				"articleTitle": "Reportages",
+				"articleParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio."
+			},
+			"Reportages": {
+				"brameCerfTitle": "Le brame du cerf dans les Cévennes",
+				"brameCerfParagraph": "Chaque année, le rut du cerf accompagne l’arrivée de l’automne. La nuit, des cris gutturaux résonnent alors dans la forêt pendant un mois.",
+				"dolphinTitle": "Le grand dauphin en Méditéranée",
+				"dolphinParagraph": "Texte et photos à paraitre dans la revue Salamandre N°277",
+				"papetierTitle": "L'Atelier papetier",
+				"papetierParagraph": "Formé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique.",
+				"loupDordogneTitle": "Le retour du loup en Dordogne",
+				"loupDordogneParagraph": "Des propriétaires de troupeaux et des scientifiques ont créé un réseau d’acteurs et un plan d’action pour prévenir les actes de prédation sur leur bétail et assurer une cohabitation apaisée.",
+				"pandemicTitle": "5 - 24 heures dans la vie d'une étudiante en pandémie",
+				"pandemicParagraph": "Nolwenn, 19 ans est étudiante en première année de licence d’Études culturelles à l’université de Lille.",
+				"climateMarchTitle": "Marche pour le climat",
+				"climateMarchParagraph": "",
+				"linkLabel": "EN SAVOIR PLUS",
+				"pageTitle": "REPORTAGES"
 			}
 		},
 	}

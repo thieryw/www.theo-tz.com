@@ -59,7 +59,6 @@ const useStyles = makeStyles()(theme => {
 			"flexDirection": "column",
 			"maxWidth": 340,
 			//temp
-			...theme.spacing.topBottom("margin", `${theme.spacing(9)}px`),
 			"padding": theme.spacing({
 				"rightLeft": `${theme.spacing(6)}px`,
 				"topBottom": `${theme.spacing(7)}px`

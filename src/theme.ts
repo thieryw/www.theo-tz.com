@@ -66,7 +66,7 @@ export const { useTheme, ThemeProvider } = createThemeProvider({
 		"buttonColor": "#a65959",
 		"transparentBackground": (params: {direction: "to left" | "to right" | "to bottom" | "to top"}) => {
 			const {direction} = params;
-			return `linear-gradient(${direction}, rgba(255,253,240,0.4), rgba(255,253,240,1))`;
+			return `linear-gradient(${direction}, rgba(248,246,243,0.4), rgba(248,246,243,1))`;
 		}
 
 

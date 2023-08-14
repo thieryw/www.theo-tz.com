@@ -7,6 +7,9 @@ import { Home } from "./pages/Home";
 import { Naturalism } from "./pages/Naturalism";
 import { Biography } from "./pages/Biography";
 import { Reportages } from "./pages/Reportages";
+import { Portraits } from "./pages/Portraits";
+import { Events } from "./pages/Events";
+import { Urbain } from "./pages/Urbain";
 import { SmoothScrollProvider } from "./components/SmoothScrollProvider";
 import { Footer } from "./components/Footer";
 import instagramIconUrl from "./assets/svg/instagram.svg";
@@ -82,6 +85,9 @@ export function App() {
         <div className={classes.body}>
           {route.name === "home" && <Home />}
           {groups.naturalism.has(route) && <Naturalism route={route} />}
+          {groups.portraits.has(route) && <Portraits route={route} />}
+          {groups.events.has(route) && <Events route={route} />}
+          {route.name === "urban" && <Urbain />}
           {route.name === "auteur" && <Biography />}
           {route.name === "reportage" && <Reportages />}
         </div>
@@ -139,10 +145,6 @@ const useStyles = makeStyles()((theme) => {
     },
     "header": {
       "marginBottom": 3
-    },
-    "socialMediaIcon": {
-      "fill": theme.colors.palette.light.greyVariant2,
-      "fontSize": `${theme.spacing(6)}px`
     },
     "bottomDiv": {
       "display": "flex",

@@ -1,15 +1,69 @@
+import { memo, useRef } from "react";
 import { useTranslation, declareComponentKeys } from "i18n";
 import { makeStyles, Text, breakpointsValues } from "theme";
 import { LinkButton } from "components/LinkButton";
 import { CardLink } from "components/CardLink";
-import mokImage from "assets/img/gallery/Naturalisme/Antilles/1_12/miniature_1_12.jpg";
-import mokImage2 from "assets/img/gallery/Reportages/Le-brame-du-cerf-dans-les-Cevennes/23/miniature_23.jpg";
 import { SexyColumnLayout } from "components/SexyColumnLayout";
 import { routes } from "../router";
+import { files as jpgFiles } from "../generatedHomeImgExports";
+import { files as webpFiles } from "../generatedHomeWebpExports";
+
+const imageFolders = [
+	{
+		"webp": webpFiles.directories.naturalism.files,
+		"jpg": jpgFiles.directories.naturalism.files
+	},
+	{
+		"webp": webpFiles.directories.reportages.files,
+		"jpg": jpgFiles.directories.reportages.files
+	},
+	{
+		"webp": webpFiles.directories.events.files,
+		"jpg": jpgFiles.directories.events.files
+	},
+	{
+		"webp": webpFiles.directories.portraits.files,
+		"jpg": jpgFiles.directories.portraits.files
+	},
+	{
+		"webp": webpFiles.directories.urban.files,
+		"jpg": jpgFiles.directories.urban.files
+	},
+]
+
 
 export function Home() {
 	const { t } = useTranslation({ Home });
-	const { classes, cx } = useStyles();
+	const { classes } = useStyles();
+
+	const cardLinksRef = useRef([
+		{
+			"title": t("naturTitle"),
+			"paragraph": t("naturParagraph"),
+			"link": routes.naturalism().link
+		},
+		{
+			"title": t("articleTitle"),
+			"paragraph": t("articleParagraph"),
+			"link": routes.reportage().link
+		},
+		{
+			"title": t("eventTitle"),
+			"paragraph": t("eventParagraph"),
+			"link": routes.events().link
+		},
+		{
+			"title": t("portraitTitle"),
+			"paragraph": t("portraitParagraph"),
+			"link": routes.portraits().link
+		},
+		{
+			"title": t("urbanTitle"),
+			"paragraph": t("urbanParagraph"),
+			"link": routes.urban().link
+		},
+	])
+
 	return <div className={classes.root}>
 		<div className={classes.titleWrapper}>
 			<div className={classes.titleInner}>
@@ -47,75 +101,60 @@ export function Home() {
 
 		</div>
 		<div className={classes.galleryPresentation}>
-			<SexyColumnLayout
-				columns={[
-					{
-						"nodes": [
-							<img className={classes.presentationImage} src={mokImage} alt="naturalism presentation" />,
+			{
+				imageFolders.map((folder, index) => {
+					return <SexyColumnLayout
+						className={index > 0 ? classes.sexyColumnLayoutRest : undefined}
+						columns={[
+							{
+								"nodes": [
+									<Image
+										webpSrc={folder.webp.image0.url}
+										jpgSrc={folder.jpg.image1.url}
+									/>
 
-						],
-						"className": classes.columnOne
-					},
-					{
-						"nodes": [
-							<img className={classes.presentationImage} src={mokImage} alt="naturalism presentation" />,
-							<CardLink
-								title={t("naturTitle")}
-								paragraph={t("naturParagraph")}
-								link={{
-									"label": t("exploreButton"),
-									...routes.naturalism().link
-								}}
-								cardNumber="01"
-							/>,
-							<img className={classes.presentationImage} src={mokImage} alt="naturalism presentation" />
-						]
-					},
-					{
-						"nodes": [
-							<img className={classes.presentationImage} src={mokImage} alt="naturalism presentation" />,
-							<img className={classes.presentationImage} src={mokImage} alt="naturalism presentation" />
+								],
+								"className": classes.columnOne
+							},
+							{
+								"nodes": [
+									<Image
+										webpSrc={folder.webp.image1.url}
+										jpgSrc={folder.jpg.image2.url}
+									/>,
+									<CardLink
+										title={cardLinksRef.current[index].title}
+										paragraph={cardLinksRef.current[index].paragraph}
+										link={{
+											"label": t("exploreButton"),
+											...cardLinksRef.current[index].link
+										}}
+										cardNumber="01"
+									/>,
+									<Image
+										webpSrc={folder.webp.image2.url}
+										jpgSrc={folder.jpg.image3.url}
+									/>,
+								]
+							},
+							{
+								"nodes": [
+									<Image
+										webpSrc={folder.webp.image3.url}
+										jpgSrc={folder.jpg.image4.url}
+									/>,
+									<Image
+										webpSrc={folder.webp.image4.url}
+										jpgSrc={folder.jpg.image5.url}
+									/>,
 
-						],
-						"className": classes.columnThree
-					}
-				]}
-			/>
-			<SexyColumnLayout
-				className={cx(classes.sexyColumnLayout, classes.sexyColumnLayoutRest)}
-				columns={[
-					{
-						"nodes": [
-							<img className={classes.presentationImage} src={mokImage2} alt="reportage presentation" />,
-
-						],
-						"className": classes.columnOne
-					},
-					{
-						"nodes": [
-							<img className={classes.presentationImage} src={mokImage2} alt="reportage presentation" />,
-							<CardLink
-								title={t("articleTitle")}
-								paragraph={t("articleParagraph")}
-								link={{
-									"label": t("exploreButton"),
-									...routes.reportage().link
-								}}
-								cardNumber="02"
-							/>,
-							<img className={classes.presentationImage} src={mokImage2} alt="reportage presentation" />
-						]
-					},
-					{
-						"nodes": [
-							<img className={classes.presentationImage} src={mokImage2} alt="reportage presentation" />,
-							<img className={classes.presentationImage} src={mokImage2} alt="reportage presentation" />
-
-						],
-						"className": classes.columnThree
-					}
-				]}
-			/>
+								],
+								"className": classes.columnThree
+							}
+						]}
+					/>
+				})
+			}
 		</div>
 
 	</div>
@@ -145,23 +184,15 @@ const useStyles = makeStyles()(theme => {
 			"flexDirection": "column",
 			"alignItems": theme.windowInnerWidth >= breakpointsValues["lg+"] || theme.windowInnerWidth < breakpointsValues.sm ? "center" : "flex-end",
 			"position": "relative",
-			"marginTop": theme.windowInnerWidth >= 819 ? -theme.spacing(14) : theme.spacing(8),
-
-		},
-		"sexyColumnLayout": {
-			...theme.spacing.topBottom("margin", `${theme.spacing(4)}px`)
+			"marginTop": theme.windowInnerWidth >= 819 ? -theme.spacing(12) : theme.spacing(8),
 
 		},
 		"sexyColumnLayoutRest": {
-			"alignSelf": "center"
+			"alignSelf": "center",
+			...theme.spacing.topBottom("margin", `${theme.spacing(4)}px`)
 
 		},
 		"titleInner": {
-		},
-		"presentationImage": {
-			"width": "100%",
-			"minHeight": "100%"
-
 		},
 		"columnThree": {
 			...(theme.windowInnerWidth < breakpointsValues.lg ? {
@@ -227,6 +258,49 @@ const useStyles = makeStyles()(theme => {
 	})
 })
 
+const { Image } = (() => {
+
+	type ImageProps = {
+		jpgSrc: string;
+		webpSrc: string;
+		alt?: string;
+
+	};
+
+	const Image = memo((props: ImageProps) => {
+		const { jpgSrc, webpSrc, alt } = props;
+		const { classes } = useStyles();
+		return <picture>
+			<source
+				srcSet={webpSrc}
+				type="image/webp"
+			/>
+			<source
+				srcSet={jpgSrc}
+				type="image/jpeg"
+			/>
+
+			<img className={classes.root} src={webpSrc} alt={alt ?? "gallery presentation"} />
+
+
+
+		</picture>
+	})
+
+	const useStyles = makeStyles()(() => {
+		return ({
+			"root": {
+				"width": "100%",
+				"minHeight": "100%"
+
+			}
+		})
+	})
+
+	return { Image }
+
+})()
+
 
 export const { i18n } = declareComponentKeys<
 	"name" |
@@ -240,6 +314,12 @@ export const { i18n } = declareComponentKeys<
 	"naturTitle" |
 	"naturParagraph" |
 	"articleTitle" |
-	"articleParagraph"
+	"articleParagraph" |
+	"eventTitle" |
+	"eventParagraph" |
+	"urbanTitle" |
+	"urbanParagraph" |
+	"portraitTitle" |
+	"portraitParagraph"
 
 >()({ Home });

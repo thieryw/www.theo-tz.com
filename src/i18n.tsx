@@ -95,7 +95,13 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"naturTitle": "Naturalisme",
 				"naturParagraph": "la vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible.",
 				"articleTitle": "Reportages",
-				"articleParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio."
+				"articleParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"eventTitle": "Evenements",
+				"eventParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"urbanTitle": "Urbain",
+				"urbanParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"portraitTitle": "Portraits",
+				"portraitParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
 			},
 			"Reportages": {
 				"brameCerfTitle": "Le brame du cerf dans les Cévennes",

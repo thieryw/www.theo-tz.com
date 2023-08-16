@@ -22,35 +22,48 @@ export function generateExportString(params: { tree: Tree; acceptedFileExtension
 
             out = `"files": {\n`;
 
-            tree.files.forEach(file => {
+            tree.files.forEach((file, i) => {
                 if (!acceptedFileExtensions.includes(extname(file))) {
                     return out;
                 }
 
-                if (file.includes("miniature")) {
-                    out = `${out}
+                (() => {
+                    if (file.includes("miniature")) {
+                        out = `${out}
                         "miniature": {
 					        "url": _${index()},
 					        "name": "${file.replace(/^[^-]*-/g, "").replace(/\.\w+$/g, "").replace(/_/g, ' ')}"
                         }
 				    ,\n`;
-                }
-                if (file.includes("large")) {
-                    out = `${out}
+                        return;
+                    }
+                    if (file.includes("large")) {
+                        out = `${out}
                         "large": {
 					        "url": _${index()},
 					        "name": "${file.replace(/^[^-]*-/g, "").replace(/\.\w+$/g, "").replace(/_/g, ' ')}"
                         }
 				    ,\n`;
-                }
-                if (file.includes("medium")) {
-                    out = `${out}
+                        return;
+                    }
+                    if (file.includes("medium")) {
+                        out = `${out}
                         "medium": {
 					        "url": _${index()},
 					        "name": "${file.replace(/^[^-]*-/g, "").replace(/\.\w+$/g, "").replace(/_/g, ' ')}"
                         }
 				    ,\n`;
-                }
+                        return;
+                    }
+                    out = `${out}
+                        "image${i}": {
+					        "url": _${index()},
+					        "name": "${file.replace(/^[^-]*-/g, "").replace(/\.\w+$/g, "").replace(/_/g, ' ')}"
+                        }
+				    ,\n`;
+
+
+                })()
 
             });
 

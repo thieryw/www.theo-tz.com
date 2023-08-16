@@ -25,3 +25,5 @@ yarn-error.log*
 /src/assets/webp
 /src/generatedImgExports.ts
 /src/generatedWebpExports.ts
+/src/generatedHomeImgExports.ts
+/src/generatedHomeWebpExports.ts

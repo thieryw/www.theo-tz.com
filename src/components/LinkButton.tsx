@@ -1,6 +1,9 @@
 import { makeStyles } from "theme";
 import type { Link } from "../tools/link";
 import { Text } from "../theme";
+import { memo, useContext } from "react"
+import { useConstCallback } from "powerhooks/useConstCallback";
+import { ScrollContext } from "./SmoothScrollProvider";
 
 export type LinkButtonProps = {
 	link: Link;
@@ -9,20 +12,24 @@ export type LinkButtonProps = {
 	classes?: Partial<ReturnType<typeof useStyles>["classes"]>;
 };
 
-export function LinkButton(props: LinkButtonProps) {
+export const LinkButton = memo((props: LinkButtonProps) => {
 	const { link, className, label } = props;
+	const { classes, cx } = useStyles(undefined, { props });
+	const context = useContext(ScrollContext);
 
-
-
-	const { classes, cx } = useStyles(undefined, {props});
+	const scrollToTop = useConstCallback(() => {
+		context?.scrollToTop();
+	});
 
 	return (
 		<div className={cx(classes.root, className)}>
 			<div className={classes.decorativeLine}></div>
-			<a className={classes.link} {...link}><Text className={classes.label} typo="navigation label">{label}</Text></a>
+			<div onClick={scrollToTop} className={classes.linkWrapper}>
+				<a className={classes.link} {...link}><Text className={classes.label} typo="navigation label">{label}</Text></a>
+			</div>
 		</div>
 	);
-}
+})
 
 const useStyles = makeStyles<void, "label">()((theme, _params, classes) => ({
 	"root": {
@@ -47,5 +54,7 @@ const useStyles = makeStyles<void, "label">()((theme, _params, classes) => ({
 			"transform": `translateX(${theme.spacing(2)}px)`
 		}
 
+	},
+	"linkWrapper": {
 	}
 }));

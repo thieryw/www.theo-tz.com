@@ -14,6 +14,7 @@ import climateWebp from "../assets/webp/ReportagePresentation/climat.webp";
 import { CardLink } from "../components/CardLink";
 import { makeStyles, Text, breakpointsValues } from "../theme";
 import { declareComponentKeys, useTranslation } from "../i18n";
+import { routes } from "../router";
 
 export function Reportages() {
 	const { classes } = useStyles();
@@ -47,7 +48,7 @@ export function Reportages() {
 						title={t("brameCerfTitle")}
 						paragraph={t("brameCerfParagraph")}
 						link={{
-							"href": "",
+							...routes.brameCerf().link,
 							"label": t("linkLabel")
 						}}
 					/>
@@ -77,8 +78,8 @@ export function Reportages() {
 						title={t("dolphinTitle")}
 						paragraph={t("dolphinParagraph")}
 						link={{
-							"href": "",
-							"label": t("linkLabel")
+							"label": t("linkLabel"),
+							...routes.dolphin().link
 						}}
 					/>
 				},
@@ -107,8 +108,8 @@ export function Reportages() {
 						title={t("papetierTitle")}
 						paragraph={t("pandemicParagraph")}
 						link={{
-							"href": "",
-							"label": t("linkLabel")
+							"label": t("linkLabel"),
+							...routes.papetier().link
 						}}
 					/>
 				},
@@ -137,8 +138,8 @@ export function Reportages() {
 						title={t("loupDordogneTitle")}
 						paragraph={t("loupDordogneParagraph")}
 						link={{
-							"href": "",
-							"label": t("linkLabel")
+							"label": t("linkLabel"),
+							...routes.wolf().link
 						}}
 					/>
 				},
@@ -167,8 +168,8 @@ export function Reportages() {
 						title={t("pandemicTitle")}
 						paragraph={t("pandemicParagraph")}
 						link={{
-							"href": "",
-							"label": t("linkLabel")
+							"label": t("linkLabel"),
+							...routes.pandemic().link
 						}}
 					/>
 				},
@@ -197,8 +198,9 @@ export function Reportages() {
 						title={t("climateMarchTitle")}
 						paragraph={t("climateMarchParagraph")}
 						link={{
-							"href": "",
-							"label": t("linkLabel")
+							"label": t("linkLabel"),
+							...routes.climat().link
+							
 						}}
 					/>
 				},
@@ -223,20 +225,20 @@ const useStyles = makeStyles()(theme => {
 		"pageTitle": {
 			"position": "relative",
 			"top": isSmallScreen ? undefined : 340,
-			"left": (()=>{
-				if(theme.windowInnerWidth < breakpointsValues["lg+"] && theme.windowInnerWidth >= breakpointsValues.lg){
+			"left": (() => {
+				if (theme.windowInnerWidth < breakpointsValues["lg+"] && theme.windowInnerWidth >= breakpointsValues.lg) {
 					return "15%";
 				}
-				if(theme.windowInnerWidth < breakpointsValues.lg && theme.windowInnerWidth >= breakpointsValues.md){
+				if (theme.windowInnerWidth < breakpointsValues.lg && theme.windowInnerWidth >= breakpointsValues.md) {
 					return "10%";
 				}
-				if(isSmallScreen){
+				if (isSmallScreen) {
 					return undefined;
 				}
 				return "20%";
 			})(),
 			"textAlign": isSmallScreen ? "center" : undefined,
-			"marginTop" : isSmallScreen ? theme.spacing(8) : undefined,
+			"marginTop": isSmallScreen ? theme.spacing(8) : undefined,
 			"marginBottom": isSmallScreen ? theme.spacing(9) : undefined
 
 		},

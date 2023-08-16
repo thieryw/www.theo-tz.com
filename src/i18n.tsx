@@ -24,7 +24,13 @@ export const {
 	typeof import ("pages/Reportages").i18n |
 	typeof import ("pages/Portraits").i18n |
 	typeof import ("pages/Events").i18n |
-	typeof import ("pages/Urbain").i18n
+	typeof import ("pages/Urbain").i18n |
+	typeof import ("pages/BrameCerf").i18n |
+	typeof import ("pages/Dolphin").i18n |
+	typeof import ("pages/Papetier").i18n |
+	typeof import ("pages/WolfDordogne").i18n |
+	typeof import ("pages/Pandemic").i18n |
+	typeof import ("pages/ClimateMarch").i18n
 >()(
 	{ languages, fallbackLanguage },
 	{
@@ -100,7 +106,7 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"papetierParagraph": "Formé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique.",
 				"loupDordogneTitle": "Le retour du loup en Dordogne",
 				"loupDordogneParagraph": "Des propriétaires de troupeaux et des scientifiques ont créé un réseau d’acteurs et un plan d’action pour prévenir les actes de prédation sur leur bétail et assurer une cohabitation apaisée.",
-				"pandemicTitle": "5 - 24 heures dans la vie d'une étudiante en pandémie",
+				"pandemicTitle": "24 heures dans la vie d'une étudiante en pandémie",
 				"pandemicParagraph": "Nolwenn, 19 ans est étudiante en première année de licence d’Études culturelles à l’université de Lille.",
 				"climateMarchTitle": "Marche pour le climat",
 				"climateMarchParagraph": "",
@@ -124,7 +130,37 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 			},
 			"Urbain": {
 				"pageName": "URBAIN"
+			},
+			"BrameCerf": {
+				"pageName": "BRAME DU CERF",
+				"text": `haque année, le rut du cerf accompagne l’arrivée de l’automne. La nuit, des cris gutturaux résonnent alors dans la forêt pendant un mois. Accompagné d’un agent, Reporterre s’est promené à pas ouatés dans le Parc national des Cévennes pour écouter les mâles bramer. Une période sensible pour les animaux, qui nécessite la discrétion des humains. Texte et photos à retrouver sur le site de [Reporterre](https://reporterre.net/Le-brame-du-cerf-un-rendez-vous-avec-le-sauvage)`,
+				"textFirstLetter": "C"
+			},
+			"Dolphin": {
+				"pageName": "LE GRAND DOPHIN EN MEDITERANEE",
+				"textFirstLetter": "T",
+				"text": "exte et photos à paraitre dans la revue Salamandre N°277"
+			},
+			"Papetier": {
+				"text": `ormé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique. Un savoir-faire minutieux, qui est une réelle alternative à l’industrie papetière peu écologique. Texte et photos pour [Reporterre](https://reporterre.net/A-la-main-et-sans-produit-chimique-ils-fabriquent-du-papier-ecologique?fbclid=IwAR0p3EGc3J8dOcC-k-AST2WLMS0EqCUG14p_Nj9CJTp3fF_XXyZwyNuUtNI#nb1)`,
+				"textFirstLetter": "F",
+				"pageName": "L' ATELIER PAPETIER"
+			},
+			"WolfDordogne": {
+				"pageName": "LE RETOUR DU LOUP EN DORDOGNE",
+				"text": `es propriétaires de troupeaux et des scientifiques ont créé un réseau d’acteurs et un plan d’action pour prévenir les actes de prédation sur leur bétail et assurer une cohabitation apaisée. Texte et photos à retrouver sur le site de [Politis](https://www.politis.fr/articles/2022/10/en-dordogne-les-eleveurs-anticipent-le-retour-du-loup-44869/)`,
+				"textFirstLetter": "D"
+			},
+			"Pandemic": {
+				"pageName": "UNE ETUDIANTE EN PANDEMIE",
+				"text": `olwenn, 19 ans est étudiante en première année de licence d’Études culturelles à l’université de Lille. A cause de la crise sanitaire, elle a suivi la majorité de ses cours en distanciel, une situation qui brouille les frontières entre les moments consacrés aux études et les activités récréatives. Immersion dans son quotidien de 15m². Texte et photos à retrouver sur le site de [l’ESJ-Lille](https://esj-lille.fr/actualite/article/science-infuse-le-mag--de-la-28e-promotion-journalistes-scientifiques-est-en-ligne-)`,
+				"textFirstLetter": "N"
+			},
+			"ClimateMarch": {
+				"pageName": "MARCHE POUR LE CLIMAT"
+
 			}
+
 		},
 	}
 );

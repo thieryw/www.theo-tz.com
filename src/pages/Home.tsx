@@ -6,10 +6,13 @@ import mokImage from "assets/img/gallery/Naturalisme/Antilles/1_12/miniature_1_1
 import mokImage2 from "assets/img/gallery/Reportages/Le-brame-du-cerf-dans-les-Cévennes/23/miniature_23.jpg";
 import { SexyColumnLayout } from "components/SexyColumnLayout";
 import { routes } from "../router";
+import { ScrollContext } from "components/SmoothScrollProvider"
+import { useContext } from "react";
 
 export function Home() {
 	const { t } = useTranslation({ Home });
 	const { classes, cx } = useStyles();
+	const context = useContext(ScrollContext);
 	return <div className={classes.root}>
 		<div className={classes.titleWrapper}>
 			<div className={classes.titleInner}>
@@ -116,6 +119,12 @@ export function Home() {
 					}
 				]}
 			/>
+		</div>
+		<div onClick={() => {
+			context?.scrollToTop();
+		}}>
+			<a {...routes.home().link}>mlkjmlkjmlkj</a>
+
 		</div>
 
 	</div>

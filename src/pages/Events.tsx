@@ -121,6 +121,9 @@ const useStyles = makeStyles()(theme => {
 		},
 		"title": {
 			"zIndex": 4,
+			"maxWidth": 400 + 2 * theme.spacing(5),
+			"textAlign": "center",
+			...theme.spacing.rightLeft("padding", `${theme.spacing(5)}px`)
 		},
 		"pageContent": {
 			"width": theme.windowInnerWidth < breakpointsValues.md ? undefined : "70%",

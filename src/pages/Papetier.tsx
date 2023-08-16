@@ -1,29 +1,36 @@
 import { BackgroundFade } from "../components/BackgroundFade";
-import backgroundImg from "assets/img/gallery/Urbain/9/medium_9.jpg";
+import backgroundImg from "assets/img/gallery/Reportages/Atelier-papetier/3/medium_3.jpg";
 import { makeStyles, Text, breakpointsValues } from "theme";
 import { files as jpegFiles } from "../generatedImgExports";
 import { files as webpFiles } from "../generatedWebpExports";
 import { useTranslation, declareComponentKeys } from "i18n";
 import { Gallery } from "components/Gallery";
+import MarkDown from "react-markdown";
 
-const jpg = jpegFiles.directories.Urbain.directories
-const webp = webpFiles.directories.Urbain.directories
+const jpg = jpegFiles.directories.Reportages.directories["Atelier-papetier"].directories
+const webp = webpFiles.directories.Reportages.directories["Atelier-papetier"].directories
 
 
 
-export function Urbain() {
+export function Papetier() {
 
 	const { classes } = useStyles();
-	const { t } = useTranslation({ Urbain })
+	const { t } = useTranslation({ Papetier })
 
 	return <div className={classes.root}>
 		<div className={classes.banner}>
 			<BackgroundFade className={classes.background} fadeDirection={"to bottom"} isImageCovered={true} imageUrl={backgroundImg} />
 			<Text className={classes.title} typo="my title">{t("pageName")}</Text>
-
 		</div>
 		<div className={classes.pageContentWrapper}>
 			<div className={classes.pageContent}>
+				<div className={classes.textWrapper}>
+					<Text className={classes.capitalLetter} typo="body 1">
+						{t("textFirstLetter")}
+					</Text>
+					<MarkDown className={classes.text}>{t("text")}</MarkDown>
+				</div>
+				<div className={classes.lineSeparator}></div>
 				<div className={classes.galleryWrapper}>
 						<Gallery
 							webp={webp}
@@ -51,6 +58,48 @@ const useStyles = makeStyles()(theme => {
 			"justifyContent": "center",
 			"position": "relative"
 		},
+		"textWrapper": {
+			...(() => {
+				const value = theme.windowInnerWidth >= breakpointsValues.sm ? theme.spacing(7) : theme.spacing(5)
+				return {
+					"paddingTop": value,
+					...theme.spacing.rightLeft("padding", `${value}px`)
+
+				}
+			})(),
+		},
+		"text": {
+			...theme.typography.variants["body 1"].style,
+			"& > p": {
+				"marginBlockStart": 0,
+				"marginBlockEnd": 0,
+				"& > a": {
+					"textDecoration": "none",
+					"color": theme.colors.palette.blueInfo.main,
+					"transition": "color 500ms",
+					":hover": {
+						"color": theme.colors.palette.dark.greyVariant2
+					}
+				}
+			}
+		},
+		"lineSeparator": {
+			"width": theme.spacing(10),
+			"height": 1,
+			"backgroundColor": theme.colors.palette.dark.greyVariant3,
+			...theme.spacing.topBottom("margin", `${theme.spacing(7)}px`)
+		},
+		"capitalLetter": {
+			"color": theme.colors.palette.dark.greyVariant1,
+			"fontSize": "5rem",
+			"float": "left",
+			"marginRight": 15,
+			"marginBottom": theme.windowInnerWidth < breakpointsValues.xl ? 10 : 15,
+			"paddingTop": theme.spacing(4),
+			"position": "relative",
+			"top": theme.windowInnerWidth < breakpointsValues.xl ? 5 : undefined
+
+		},
 		"title": {
 			"zIndex": 4,
 			"maxWidth": 400 + 2 * theme.spacing(5),
@@ -71,6 +120,7 @@ const useStyles = makeStyles()(theme => {
 			"justifyContent": "center",
 			"marginTop": -theme.spacing(13),
 			"position": "relative",
+
 		},
 		"background": {
 			"filter": "grayscale(100%)"
@@ -83,5 +133,7 @@ const useStyles = makeStyles()(theme => {
 });
 
 export const { i18n } = declareComponentKeys<
-	"pageName" 
->()({ Urbain });
+	"pageName" |
+	"text" |
+	"textFirstLetter"
+>()({ Papetier });

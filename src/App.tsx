@@ -8,6 +8,12 @@ import { Naturalism } from "./pages/Naturalism";
 import { Biography } from "./pages/Biography";
 import { Reportages } from "./pages/Reportages";
 import { Portraits } from "./pages/Portraits";
+import { BrameCerf } from "./pages/BrameCerf";
+import { Papetier } from "./pages/Papetier";
+import { Dolphin } from "./pages/Dolphin";
+import { WolfDordogne } from "./pages/WolfDordogne";
+import { Pandemic } from "./pages/Pandemic";
+import { ClimateMarch } from "./pages/ClimateMarch";
 import { Events } from "./pages/Events";
 import { Urbain } from "./pages/Urbain";
 import { SmoothScrollProvider } from "./components/SmoothScrollProvider";
@@ -58,6 +64,7 @@ export function App() {
 
   const { classes, cx, theme } = useStyles();
 
+
   return (
     <SmoothScrollProvider>
       <div className={classes.root}>
@@ -90,6 +97,12 @@ export function App() {
           {route.name === "urban" && <Urbain />}
           {route.name === "auteur" && <Biography />}
           {route.name === "reportage" && <Reportages />}
+          {route.name === "brameCerf" && <BrameCerf />}
+          {route.name === "dolphin" && <Dolphin />}
+          {route.name === "papetier" && <Papetier />}
+          {route.name === "wolf" && <WolfDordogne />}
+          {route.name === "pandemic" && <Pandemic />}
+          {route.name === "climat" && <ClimateMarch />}
         </div>
         <Footer
           className={classes.footer}

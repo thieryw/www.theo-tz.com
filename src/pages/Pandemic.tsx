@@ -1,43 +1,26 @@
-import { routes, groups } from "router";
 import { BackgroundFade } from "../components/BackgroundFade";
-import backgroundImg from "assets/img/gallery/Naturalisme/France/1/medium_1.jpg";
+import backgroundImg from "assets/img/gallery/Reportages/24h-dans-la-vie d-une-etudiante-en-pandémie/8/medium_8.jpg";
 import { makeStyles, Text, breakpointsValues } from "theme";
-import { GalleryNavBar } from "components/GalleryNavBar";
-import type { Route } from "type-route";
 import { files as jpegFiles } from "../generatedImgExports";
 import { files as webpFiles } from "../generatedWebpExports";
 import { useTranslation, declareComponentKeys } from "i18n";
 import { Gallery } from "components/Gallery";
+import MarkDown from "react-markdown";
 
-const jpg = {
-	"france": jpegFiles.directories["Naturalisme"].directories["France"].directories,
-	"antilles": jpegFiles.directories["Naturalisme"].directories["Antilles"].directories,
-	"westCanada": jpegFiles.directories["Naturalisme"].directories["Ouest-canadien"].directories,
-	"reunionMaurice": jpegFiles.directories["Naturalisme"].directories["Reunion-Maurice"].directories,
-};
+const jpg = jpegFiles.directories.Reportages.directories["24h-dans-la-vie d-une-etudiante-en-pandémie"].directories
+const webp = webpFiles.directories.Reportages.directories["24h-dans-la-vie d-une-etudiante-en-pandémie"].directories
 
-const webp = {
-	"france": webpFiles.directories["Naturalisme"].directories["France"].directories,
-	"antilles": webpFiles.directories["Naturalisme"].directories["Antilles"].directories,
-	"westCanada": webpFiles.directories["Naturalisme"].directories["Ouest-canadien"].directories,
-	"reunionMaurice": webpFiles.directories["Naturalisme"].directories["Reunion-Maurice"].directories,
-};
 
-export type NaturalismProps = {
-	route: Route<typeof groups.naturalism>
-};
 
-export function Naturalism(props: NaturalismProps) {
-	const { route } = props;
+export function Pandemic() {
 
 	const { classes } = useStyles();
-	const { t } = useTranslation({ Naturalism })
+	const { t } = useTranslation({ Pandemic })
 
 	return <div className={classes.root}>
 		<div className={classes.banner}>
 			<BackgroundFade className={classes.background} fadeDirection={"to bottom"} isImageCovered={true} imageUrl={backgroundImg} />
 			<Text className={classes.title} typo="my title">{t("pageName")}</Text>
-
 		</div>
 		<div className={classes.pageContentWrapper}>
 			<div className={classes.pageContent}>
@@ -45,67 +28,14 @@ export function Naturalism(props: NaturalismProps) {
 					<Text className={classes.capitalLetter} typo="body 1">
 						{t("textFirstLetter")}
 					</Text>
-					<Text typo="body 1">
-						{t("text")}
-					</Text>
+					<MarkDown className={classes.text}>{t("text")}</MarkDown>
 				</div>
 				<div className={classes.lineSeparator}></div>
-				<GalleryNavBar
-					className={classes.navBar}
-					activeTabLabel={(() => {
-						switch (route.name) {
-							case "antilles": return t("antillesTab");
-							case "westCanada": return t("canadaTab");
-							case "reunionMaurice": return t("mauriceTab");
-							default: return t("franceTab");
-						}
-					})()}
-					links={[
-						{
-							"label": t("franceTab"),
-							...routes.france().link
-						},
-						{
-							"label": t("antillesTab"),
-							...routes.antilles().link
-						},
-						{
-							"label": t("canadaTab"),
-							...routes.westCanada().link
-						},
-						{
-							"label": t("mauriceTab"),
-							...routes.reunionMaurice().link
-						},
-					]}
-				/>
 				<div className={classes.galleryWrapper}>
-					{
-						(route.name === "france" || route.name === "naturalism") && <Gallery
-							webp={webp.france}
-							jpg={jpg.france}
+						<Gallery
+							webp={webp}
+							jpg={jpg}
 						/>
-					}
-					{
-						route.name === "antilles" && <Gallery
-							webp={webp.antilles}
-							jpg={jpg.antilles}
-						/>
-					}
-					{
-						route.name === "westCanada" && <Gallery
-							webp={webp.westCanada}
-							jpg={jpg.westCanada}
-						/>
-					}
-					{
-						route.name === "reunionMaurice" && <Gallery
-							webp={webp.reunionMaurice}
-							jpg={jpg.reunionMaurice}
-
-						/>
-					}
-
 				</div>
 
 			</div>
@@ -137,6 +67,21 @@ const useStyles = makeStyles()(theme => {
 
 				}
 			})(),
+		},
+		"text": {
+			...theme.typography.variants["body 1"].style,
+			"& > p": {
+				"marginBlockStart": 0,
+				"marginBlockEnd": 0,
+				"& > a": {
+					"textDecoration": "none",
+					"color": theme.colors.palette.blueInfo.main,
+					"transition": "color 500ms",
+					":hover": {
+						"color": theme.colors.palette.dark.greyVariant2
+					}
+				}
+			}
 		},
 		"lineSeparator": {
 			"width": theme.spacing(10),
@@ -180,10 +125,6 @@ const useStyles = makeStyles()(theme => {
 		"background": {
 			"filter": "grayscale(100%)"
 		},
-		"navBar": {
-			"marginBottom": theme.spacing(2),
-			"width": "100%"
-		},
 		"galleryWrapper": {
 			"minHeight": "100vh"
 		}
@@ -193,10 +134,6 @@ const useStyles = makeStyles()(theme => {
 
 export const { i18n } = declareComponentKeys<
 	"pageName" |
-	"franceTab" |
-	"antillesTab" |
-	"canadaTab" |
-	"mauriceTab" |
 	"text" |
 	"textFirstLetter"
->()({ Naturalism });
+>()({ Pandemic });

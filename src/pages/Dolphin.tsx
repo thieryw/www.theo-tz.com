@@ -1,13 +1,13 @@
 import { BackgroundFade } from "../components/BackgroundFade";
-import backgroundImg from "assets/img/gallery/Reportages/Le-Grand-dauphin-en-Méditerranee/28/medium_28.jpg";
+import backgroundImg from "assets/img/gallery/Reportages/Le-Grand-dauphin-en-Mediterranee/28/medium_28.jpg";
 import { makeStyles, Text, breakpointsValues } from "theme";
 import { files as jpegFiles } from "../generatedImgExports";
 import { files as webpFiles } from "../generatedWebpExports";
 import { useTranslation, declareComponentKeys } from "i18n";
 import { Gallery } from "components/Gallery";
 
-const jpg = jpegFiles.directories.Reportages.directories["Le-Grand-dauphin-en-Méditerranee"].directories
-const webp = webpFiles.directories.Reportages.directories["Le-Grand-dauphin-en-Méditerranee"].directories
+const jpg = jpegFiles.directories.Reportages.directories["Le-Grand-dauphin-en-Mediterranee"].directories
+const webp = webpFiles.directories.Reportages.directories["Le-Grand-dauphin-en-Mediterranee"].directories
 
 
 

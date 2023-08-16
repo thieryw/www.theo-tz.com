@@ -1,5 +1,5 @@
 import { BackgroundFade } from "../components/BackgroundFade";
-import backgroundImg from "assets/img/gallery/Reportages/Le-brame-du-cerf-dans-les-Cévennes/9/medium_9.jpg";
+import backgroundImg from "assets/img/gallery/Reportages/Le-brame-du-cerf-dans-les-Cevennes/9/medium_9.jpg";
 import { makeStyles, Text, breakpointsValues } from "theme";
 import { files as jpegFiles } from "../generatedImgExports";
 import { files as webpFiles } from "../generatedWebpExports";
@@ -7,8 +7,8 @@ import { useTranslation, declareComponentKeys } from "i18n";
 import { Gallery } from "components/Gallery";
 import MarkDown from "react-markdown";
 
-const jpg = jpegFiles.directories.Reportages.directories["Le-brame-du-cerf-dans-les-Cévennes"].directories
-const webp = webpFiles.directories.Reportages.directories["Le-brame-du-cerf-dans-les-Cévennes"].directories
+const jpg = jpegFiles.directories.Reportages.directories["Le-brame-du-cerf-dans-les-Cevennes"].directories
+const webp = webpFiles.directories.Reportages.directories["Le-brame-du-cerf-dans-les-Cevennes"].directories
 
 
 

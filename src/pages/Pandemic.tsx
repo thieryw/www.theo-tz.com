@@ -1,5 +1,5 @@
 import { BackgroundFade } from "../components/BackgroundFade";
-import backgroundImg from "assets/img/gallery/Reportages/24h-dans-la-vie d-une-etudiante-en-pandémie/8/medium_8.jpg";
+import backgroundImg from "assets/img/gallery/Reportages/24h-dans-la-vie d-une-etudiante-en-pandemie/8/medium_8.jpg";
 import { makeStyles, Text, breakpointsValues } from "theme";
 import { files as jpegFiles } from "../generatedImgExports";
 import { files as webpFiles } from "../generatedWebpExports";
@@ -7,8 +7,8 @@ import { useTranslation, declareComponentKeys } from "i18n";
 import { Gallery } from "components/Gallery";
 import MarkDown from "react-markdown";
 
-const jpg = jpegFiles.directories.Reportages.directories["24h-dans-la-vie d-une-etudiante-en-pandémie"].directories
-const webp = webpFiles.directories.Reportages.directories["24h-dans-la-vie d-une-etudiante-en-pandémie"].directories
+const jpg = jpegFiles.directories.Reportages.directories["24h-dans-la-vie d-une-etudiante-en-pandemie"].directories
+const webp = webpFiles.directories.Reportages.directories["24h-dans-la-vie d-une-etudiante-en-pandemie"].directories
 
 
 

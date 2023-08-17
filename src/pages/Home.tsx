@@ -104,13 +104,14 @@ export function Home() {
 			{
 				imageFolders.map((folder, index) => {
 					return <SexyColumnLayout
+						key={index}
 						className={index > 0 ? classes.sexyColumnLayoutRest : undefined}
 						columns={[
 							{
 								"nodes": [
 									<Image
-										webpSrc={folder.webp.image0.url}
-										jpgSrc={folder.jpg.image1.url}
+										webpSrc={folder.webp[1].url}
+										jpgSrc={folder.jpg[1].url}
 									/>
 
 								],
@@ -119,8 +120,8 @@ export function Home() {
 							{
 								"nodes": [
 									<Image
-										webpSrc={folder.webp.image1.url}
-										jpgSrc={folder.jpg.image2.url}
+										webpSrc={folder.webp[2].url}
+										jpgSrc={folder.jpg[2].url}
 									/>,
 									<CardLink
 										title={cardLinksRef.current[index].title}
@@ -132,20 +133,20 @@ export function Home() {
 										cardNumber="01"
 									/>,
 									<Image
-										webpSrc={folder.webp.image2.url}
-										jpgSrc={folder.jpg.image3.url}
+										webpSrc={folder.webp[3].url}
+										jpgSrc={folder.jpg[3].url}
 									/>,
 								]
 							},
 							{
 								"nodes": [
 									<Image
-										webpSrc={folder.webp.image3.url}
-										jpgSrc={folder.jpg.image4.url}
+										webpSrc={folder.webp[4].url}
+										jpgSrc={folder.jpg[4].url}
 									/>,
 									<Image
-										webpSrc={folder.webp.image4.url}
-										jpgSrc={folder.jpg.image5.url}
+										webpSrc={folder.webp[5].url}
+										jpgSrc={folder.jpg[5].url}
 									/>,
 
 								],

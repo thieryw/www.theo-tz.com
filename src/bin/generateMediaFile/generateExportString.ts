@@ -56,7 +56,7 @@ export function generateExportString(params: { tree: Tree; acceptedFileExtension
                         return;
                     }
                     out = `${out}
-                        "image${i}": {
+                        "${file.replace(/^[^-]*-/g, "").replace(/\.\w+$/g, "").replace(/_/g, ' ')}": {
 					        "url": _${index()},
 					        "name": "${file.replace(/^[^-]*-/g, "").replace(/\.\w+$/g, "").replace(/_/g, ' ')}"
                         }

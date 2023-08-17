@@ -39,6 +39,7 @@ export const SexyColumnLayout = memo((props: SexyColumnLayoutProps) => {
 					...getFlexGap("row")
 				}}
 				className={cx(classes.column, className)}
+				key={index}
 			>
 				{
 					nodes.map((node, index) => <div

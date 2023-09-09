@@ -26,17 +26,6 @@ export const Carousel = (props: CarouselProps) => {
 		"numberOfSlides": slides.length
 	}, { props });
 
-	/*const nextPercentageFactor = useRef<number>((()=>{
-		if(theme.windowInnerWidth < breakpointsValues.md && theme.windowInnerWidth >= breakpointsValues.sm){
-			return 2;
-		}
-
-		if(theme.windowInnerWidth < breakpointsValues.sm){
-			return 4;
-		};
-
-		return 1;
-	})());*/
 	const nextPercentageFactor = useMemo(()=>{
 		if(theme.windowInnerWidth < breakpointsValues.md && theme.windowInnerWidth >= breakpointsValues.sm){
 			return 2;
@@ -81,12 +70,23 @@ export const Carousel = (props: CarouselProps) => {
 
 		trackRef.current.dataset.percentage = `${nextPercentage}`;
 
-		trackRef.current.animate({
-			"transform": `translate(${nextPercentage}%)`
-		}, {
-			"duration": 1200,
-			"fill": "forwards"
-		})
+		(()=>{
+			if (!Element.prototype.animate) {
+				trackRef.current.style.transition = 'transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)';
+				trackRef.current.style.transform = `translate(${nextPercentage}%)`;
+				return;
+			}
+			trackRef.current.animate({
+				"transform": `translate(${nextPercentage}%)`
+			}, {
+				"duration": 1200,
+				"fill": "forwards"
+			});
+		})()
+
+		if(!Element.prototype.animate){
+			return;
+		}
 
 		const imageElements = Array.from(trackRef.current.getElementsByClassName(classes.image));
 
@@ -118,22 +118,27 @@ export const Carousel = (props: CarouselProps) => {
 				ref={trackRef}
 			>
 				{
-					slides.map(({ image: { src, alt, sources }, extraContent }) => <div key={src} className={classes.slide}>
-						<picture>
-							{
-								sources !== undefined &&
-								sources.map((source, index) => <source key={index} {...source} />)
-							}
-							<img
-								className={classes.image}
-								src={src}
-								draggable={false}
-								alt={alt ?? "carousel picture"}
-							/>
-						</picture>
+					slides.map(({ image: { src, alt, sources }, extraContent }, index) => <div style={{
+						"marginLeft": index === 0 ? undefined : theme.spacing(5)
+					}} key={src} className={classes.slide}>
+						<div className={classes.pictureWrapper}>
+							<picture>
+								{
+									sources !== undefined &&
+									sources.map((source, index) => <source key={index} {...source} />)
+								}
+								<img
+									className={classes.image}
+									src={src}
+									draggable={false}
+									alt={alt ?? "carousel picture"}
+								/>
+							</picture>
+
+						</div>
 						{
 							extraContent !== undefined &&
-							 	extraContent
+							extraContent
 						}
 					</div>)
 				}
@@ -156,30 +161,39 @@ const useStyles = makeStyles<{ numberOfSlides: number }>()((theme, { numberOfSli
 		},
 		"track": {
 			"display": "flex",
-			"gap": gap,
 			"position": "relative",
 			"left": "50%",
 			"userSelect": "none",
-			"width": imageWidth * numberOfSlides + (()=>{
-				if(numberOfSlides === 1){
+			"width": imageWidth * numberOfSlides + (() => {
+				if (numberOfSlides === 1) {
 					return 0;
 				}
-				if(numberOfSlides === 2){
+				if (numberOfSlides === 2) {
 					return gap;
 				}
 				return (numberOfSlides - 1) * gap
 			})()
 		},
 		"slide": {
+			"position": "relative",
+			"width": imageWidth,
+			"overflow": "hidden"
+
+		},
+		"pictureWrapper": {
 
 		},
 		"image": {
 			"width": imageWidth,
 			"height": 380,
 			"objectFit": "cover",
-			"objectPosition": "100% center",
-			"transition": "objectPosition 800ms"
+			"objectPosition": (()=>{
+				if(!Element.prototype.animate){
+					return "center";
+				}
 
+				return "100% center"
+			})(),
 		}
 	})
 })

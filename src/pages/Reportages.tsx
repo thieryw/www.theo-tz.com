@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Carousel } from "components/Carousel";
 import brameJpg from "../assets/img/ReportagePresentation/brame.jpg";
 import brameWebp from "../assets/webp/ReportagePresentation/brame.webp";
@@ -12,6 +13,7 @@ import pandemicWebp from "../assets/webp/ReportagePresentation/pandemie.webp";
 import climateJpg from "../assets/img/ReportagePresentation/climat.jpg";
 import climateWebp from "../assets/webp/ReportagePresentation/climat.webp";
 import { CardLink } from "../components/CardLink";
+import type { Link } from "../tools/link";
 import { makeStyles, Text, breakpointsValues } from "../theme";
 import { declareComponentKeys, useTranslation } from "../i18n";
 import { routes } from "../router";
@@ -19,20 +21,70 @@ import { routes } from "../router";
 export function Reportages() {
 	const { classes } = useStyles();
 	const { t } = useTranslation({ Reportages })
+	const carouselDataRef = useRef<{
+		webp: string;
+		jpeg: string;
+		title: string;
+		paragraph: string;
+		link: Link;
+	}[]>([
+		{
+			"webp": brameWebp,
+			"jpeg": brameJpg,
+			"title": t("brameCerfTitle"),
+			"paragraph": t("brameCerfParagraph"),
+			"link": { ...routes.brameCerf().link }
+		},
+		{
+			"webp": dolphinWebp,
+			"jpeg": dolphinJpg,
+			"title": t("dolphinTitle"),
+			"paragraph": t("dolphinParagraph"),
+			"link": { ...routes.dolphin().link }
+		},
+		{
+			"webp": papetierWebp,
+			"jpeg": papetierJpg,
+			"title": t("papetierTitle"),
+			"paragraph": t("papetierParagraph"),
+			"link": { ...routes.papetier().link }
+		},
+		{
+			"webp": wolfWebp,
+			"jpeg": wolfJpg,
+			"title": t("loupDordogneTitle"),
+			"paragraph": t("loupDordogneParagraph"),
+			"link": { ...routes.wolf().link }
+		},
+		{
+			"webp": pandemicWebp,
+			"jpeg": pandemicJpg,
+			"title": t("pandemicTitle"),
+			"paragraph": t("pandemicParagraph"),
+			"link": { ...routes.pandemic().link }
+		},
+		{
+			"webp": climateWebp,
+			"jpeg": climateJpg,
+			"title": t("climateMarchTitle"),
+			"paragraph": t("climateMarchParagraph"),
+			"link": { ...routes.climat().link }
+		},
+	])
 	return <div className={classes.root}>
 		<Text className={classes.pageTitle} typo="page heading">{t("pageTitle")}</Text>
 		<Carousel
-			slides={[
-				{
+			slides={
+				carouselDataRef.current.map(({jpeg, link, paragraph, title, webp }) => ({
 					"image": {
-						"src": brameWebp,
+						"src": webp,
 						"sources": [
 							{
-								"srcSet": brameWebp,
+								"srcSet": webp,
 								"type": "image/webp"
 							},
 							{
-								"srcSet": brameJpg,
+								"srcSet": jpeg,
 								"type": "image/jpeg"
 							}
 						]
@@ -45,168 +97,15 @@ export function Reportages() {
 							"linkLabel": classes.cardLinkLabel,
 							"titleWrapper": classes.cardTitleWrapper
 						}}
-						title={t("brameCerfTitle")}
-						paragraph={t("brameCerfParagraph")}
+						title={title}
+						paragraph={paragraph}
 						link={{
-							...routes.brameCerf().link,
+							...link,
 							"label": t("linkLabel")
 						}}
 					/>
-				},
-				{
-					"image": {
-						"src": dolphinWebp,
-						"sources": [
-							{
-								"srcSet": dolphinWebp,
-								"type": "image/webp"
-							},
-							{
-								"srcSet": dolphinJpg,
-								"type": "image/jpeg"
-							}
-						]
-					},
-					"extraContent": <CardLink
-						className={classes.card}
-						classes={{
-							"title": classes.cardTitle,
-							"paragraph": classes.cardParagraph,
-							"linkLabel": classes.cardLinkLabel,
-							"titleWrapper": classes.cardTitleWrapper
-						}}
-						title={t("dolphinTitle")}
-						paragraph={t("dolphinParagraph")}
-						link={{
-							"label": t("linkLabel"),
-							...routes.dolphin().link
-						}}
-					/>
-				},
-				{
-					"image": {
-						"src": papetierWebp,
-						"sources": [
-							{
-								"srcSet": papetierWebp,
-								"type": "image/webp"
-							},
-							{
-								"srcSet": papetierJpg,
-								"type": "image/jpeg"
-							}
-						]
-					},
-					"extraContent": <CardLink
-						className={classes.card}
-						classes={{
-							"title": classes.cardTitle,
-							"paragraph": classes.cardParagraph,
-							"linkLabel": classes.cardLinkLabel,
-							"titleWrapper": classes.cardTitleWrapper
-						}}
-						title={t("papetierTitle")}
-						paragraph={t("pandemicParagraph")}
-						link={{
-							"label": t("linkLabel"),
-							...routes.papetier().link
-						}}
-					/>
-				},
-				{
-					"image": {
-						"src": wolfWebp,
-						"sources": [
-							{
-								"srcSet": wolfWebp,
-								"type": "image/webp"
-							},
-							{
-								"srcSet": wolfJpg,
-								"type": "image/jpeg"
-							}
-						]
-					},
-					"extraContent": <CardLink
-						className={classes.card}
-						classes={{
-							"title": classes.cardTitle,
-							"paragraph": classes.cardParagraph,
-							"linkLabel": classes.cardLinkLabel,
-							"titleWrapper": classes.cardTitleWrapper
-						}}
-						title={t("loupDordogneTitle")}
-						paragraph={t("loupDordogneParagraph")}
-						link={{
-							"label": t("linkLabel"),
-							...routes.wolf().link
-						}}
-					/>
-				},
-				{
-					"image": {
-						"src": pandemicWebp,
-						"sources": [
-							{
-								"srcSet": pandemicWebp,
-								"type": "image/webp"
-							},
-							{
-								"srcSet": pandemicJpg,
-								"type": "image/jpeg"
-							}
-						]
-					},
-					"extraContent": <CardLink
-						className={classes.card}
-						classes={{
-							"title": classes.cardTitle,
-							"paragraph": classes.cardParagraph,
-							"linkLabel": classes.cardLinkLabel,
-							"titleWrapper": classes.cardTitleWrapper
-						}}
-						title={t("pandemicTitle")}
-						paragraph={t("pandemicParagraph")}
-						link={{
-							"label": t("linkLabel"),
-							...routes.pandemic().link
-						}}
-					/>
-				},
-				{
-					"image": {
-						"src": climateWebp,
-						"sources": [
-							{
-								"srcSet": climateWebp,
-								"type": "image/webp"
-							},
-							{
-								"srcSet": climateJpg,
-								"type": "image/jpeg"
-							}
-						]
-					},
-					"extraContent": <CardLink
-						className={classes.card}
-						classes={{
-							"title": classes.cardTitle,
-							"paragraph": classes.cardParagraph,
-							"linkLabel": classes.cardLinkLabel,
-							"titleWrapper": classes.cardTitleWrapper
-						}}
-						title={t("climateMarchTitle")}
-						paragraph={t("climateMarchParagraph")}
-						link={{
-							"label": t("linkLabel"),
-							...routes.climat().link
-							
-						}}
-					/>
-				},
-
-
-			]}
+				}))
+			}
 		/>
 
 	</div>
@@ -243,13 +142,13 @@ const useStyles = makeStyles()(theme => {
 
 		},
 		"card": {
-			"maxWidth": "100%",
+			"maxWidth": "none",
+			"width": "100%",
 			"background": "none",
 			"padding": 0,
 			"marginTop": theme.spacing(4),
 			"height": 300,
 			"justifyContent": "space-between",
-			"border": "solid red px"
 		},
 		"cardTitleWrapper": {
 			"marginBottom": theme.spacing(4)

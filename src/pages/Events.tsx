@@ -14,6 +14,7 @@ const jpg = {
 	"anduze": jpegFiles.directories["Evenements"].directories["Anduze-Jazz-Camp"].directories,
 	"lindyHop": jpegFiles.directories["Evenements"].directories["Lindy-Hop-Summercamp"].directories,
 	"montpellierJazz": jpegFiles.directories["Evenements"].directories["Montpellier-Jazz-Week-1"].directories,
+	"anduze2": jpegFiles.directories["Evenements"].directories["anduze-Jazz-Camp2"].directories,
 };
 
 const webp = {
@@ -21,6 +22,7 @@ const webp = {
 	"anduze": webpFiles.directories["Evenements"].directories["Anduze-Jazz-Camp"].directories,
 	"lindyHop": webpFiles.directories["Evenements"].directories["Lindy-Hop-Summercamp"].directories,
 	"montpellierJazz": webpFiles.directories["Evenements"].directories["Montpellier-Jazz-Week-1"].directories,
+	"anduze2": webpFiles.directories["Evenements"].directories["anduze-Jazz-Camp2"].directories,
 };
 
 export type EventsProps = {
@@ -47,6 +49,7 @@ export function Events(props: EventsProps) {
 						switch (route.name) {
 							case "airstep": return t("airstepTab");
 							case "anduzeJazz": return t("anduzeTab");
+							case "anduzeJazz2": return t("anduzeTab2");
 							case "lindyHop": return t("lindyHopTab");
 							default: return t("montpellierJazzTab");
 						}
@@ -65,9 +68,13 @@ export function Events(props: EventsProps) {
 							...routes.anduzeJazz().link
 						},
 						{
+							"label": t("anduzeTab2"),
+							...routes.anduzeJazz2().link
+						},
+						{
 							"label": t("lindyHopTab"),
 							...routes.lindyHop().link
-						},
+						}
 					]}
 				/>
 				<div className={classes.galleryWrapper}>
@@ -87,6 +94,12 @@ export function Events(props: EventsProps) {
 						route.name === "anduzeJazz" && <Gallery
 							webp={webp.anduze}
 							jpg={jpg.anduze}
+						/>
+					}
+					{
+						route.name === "anduzeJazz2" && <Gallery
+							webp={webp.anduze2}
+							jpg={jpg.anduze2}
 						/>
 					}
 					{
@@ -114,6 +127,7 @@ const useStyles = makeStyles()(theme => {
 		"banner": {
 			"height": "100vh",
 			"maxHeight": 1080,
+			"minHeight": theme.windowInnerWidth < breakpointsValues.sm ? 750 : 1080,
 			"display": "flex",
 			"alignItems": "center",
 			"justifyContent": "center",
@@ -159,6 +173,7 @@ export const { i18n } = declareComponentKeys<
 	"pageName" |
 	"airstepTab" |
 	"anduzeTab" |
+	"anduzeTab2" |
 	"lindyHopTab" |
 	"montpellierJazzTab"
 >()({ Events });

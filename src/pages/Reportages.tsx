@@ -147,8 +147,8 @@ const useStyles = makeStyles()(theme => {
 			"background": "none",
 			"padding": 0,
 			"marginTop": theme.spacing(4),
-			"height": 300,
 			"justifyContent": "space-between",
+			"flexGrow": 1
 		},
 		"cardTitleWrapper": {
 			"marginBottom": theme.spacing(4)

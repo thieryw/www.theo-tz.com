@@ -36,7 +36,7 @@ export const {
 	{
 		"fr": {
 			"App": {
-				"home": "ACCEUIL",
+				"home": "ACCUEIL",
 				"journalism": "REPORTAGES",
 				"naturalism": "NATURALISME",
 				"events": "EVENEMENTS",
@@ -48,7 +48,7 @@ export const {
 				"design": "Conçu et développé par StarkerDesign."
 			},
 			"Naturalism": {
-				"pageName": "NATURALISM",
+				"pageName": "NATURALISME",
 				"franceTab": "FRANCE",
 				"antillesTab": "ANTILLES",
 				"canadaTab": "OUEST CANADIEN",
@@ -95,21 +95,21 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"naturTitle": "Naturalisme",
 				"naturParagraph": "la vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible.",
 				"articleTitle": "Reportages",
-				"articleParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"articleParagraph": "Textes et photos parus dans la presse. Vous souhaitez promouvoir votre activité, immortaliser un évènement ou avoir des illustrations pour votre site internet ? Je saurai capturer l’authenticité de l’instant.",
 				"eventTitle": "Evenements",
-				"eventParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"eventParagraph": "Je peux couvrir des festivals de danse et de musique, ou tout autre évènement en lien avec l'art ou l'écologie.",
 				"urbanTitle": "Urbain",
-				"urbanParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"urbanParagraph": "En numérique ou avec mon argentique, retrouvez quelques clichés de mes pérégrinations urbaines.",
 				"portraitTitle": "Portraits",
-				"portraitParagraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempus sagittis consequat. Pellentesque at nisl at nisl tempor consectetur. Sed ut erat congue, laoreet ante condimentum, dapibus odio.",
+				"portraitParagraph": "En studio ou en extérieur, je vous propose de saisir des instants de vie qui vous ressemblent. Seul, en couple ou en groupe, je m’adapterai à vos envies."
 			},
 			"Reportages": {
 				"brameCerfTitle": "Le brame du cerf dans les Cévennes",
 				"brameCerfParagraph": "Chaque année, le rut du cerf accompagne l’arrivée de l’automne. La nuit, des cris gutturaux résonnent alors dans la forêt pendant un mois.",
-				"dolphinTitle": "Le grand dauphin en Méditéranée",
-				"dolphinParagraph": "Texte et photos à paraitre dans la revue Salamandre N°277",
-				"papetierTitle": "L'Atelier papetier",
-				"papetierParagraph": "Formé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique.",
+				"dolphinTitle": "Surveillance en mer du milieu",
+				"dolphinParagraph": "Textes et photos parues dans le numéro 277 de la revue la Salamandre.",
+				"papetierTitle": "L'atelier papetier",
+				"papetierParagraph": "Formé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique. Un savoir-faire minutieux, qui est une réelle alternative à l’industrie papetière peu écologique.",
 				"loupDordogneTitle": "Le retour du loup en Dordogne",
 				"loupDordogneParagraph": "Des propriétaires de troupeaux et des scientifiques ont créé un réseau d’acteurs et un plan d’action pour prévenir les actes de prédation sur leur bétail et assurer une cohabitation apaisée.",
 				"pandemicTitle": "24 heures dans la vie d'une étudiante en pandémie",
@@ -132,25 +132,26 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"anduzeTab": "Anduze jazz camp",
 				"lindyHopTab": "Lindy Hop summer camp",
 				"montpellierJazzTab": "Montpellier jazz week 1",
-				"pageName": "EVENEMENTS"
+				"pageName": "EVENEMENTS",
+				"anduzeTab2": "Anduze jazz camp 2"
 			},
 			"Urbain": {
 				"pageName": "URBAIN"
 			},
 			"BrameCerf": {
-				"pageName": "BRAME DU CERF",
+				"pageName": "LE BRAME DU CERF",
 				"text": `haque année, le rut du cerf accompagne l’arrivée de l’automne. La nuit, des cris gutturaux résonnent alors dans la forêt pendant un mois. Accompagné d’un agent, Reporterre s’est promené à pas ouatés dans le Parc national des Cévennes pour écouter les mâles bramer. Une période sensible pour les animaux, qui nécessite la discrétion des humains. Texte et photos à retrouver sur le site de [Reporterre](https://reporterre.net/Le-brame-du-cerf-un-rendez-vous-avec-le-sauvage)`,
 				"textFirstLetter": "C"
 			},
 			"Dolphin": {
-				"pageName": "LE GRAND DOPHIN EN MEDITERANEE",
+				"pageName": "SURVEILLANCE EN MER DU MILIEU",
 				"textFirstLetter": "T",
-				"text": "exte et photos à paraitre dans la revue Salamandre N°277"
+				"text": "extes et photos parues dans le numéro 277 de la revue la Salamandre."
 			},
 			"Papetier": {
 				"text": `ormé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique. Un savoir-faire minutieux, qui est une réelle alternative à l’industrie papetière peu écologique. Texte et photos pour [Reporterre](https://reporterre.net/A-la-main-et-sans-produit-chimique-ils-fabriquent-du-papier-ecologique?fbclid=IwAR0p3EGc3J8dOcC-k-AST2WLMS0EqCUG14p_Nj9CJTp3fF_XXyZwyNuUtNI#nb1)`,
 				"textFirstLetter": "F",
-				"pageName": "L' ATELIER PAPETIER"
+				"pageName": "À LA MAIN ET SANS PRODUIT CHIMIQUE, ILS FABRIQUENT DU PAPIER ÉCOLOGIQUE"
 			},
 			"WolfDordogne": {
 				"pageName": "LE RETOUR DU LOUP EN DORDOGNE",

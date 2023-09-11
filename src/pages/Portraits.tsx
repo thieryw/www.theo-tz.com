@@ -128,6 +128,7 @@ const useStyles = makeStyles()(theme => {
 		"banner": {
 			"height": "100vh",
 			"maxHeight": 1080,
+			"minHeight": theme.windowInnerWidth < breakpointsValues.sm ? 750 : 1080,
 			"display": "flex",
 			"alignItems": "center",
 			"justifyContent": "center",

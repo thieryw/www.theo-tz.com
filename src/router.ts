@@ -29,6 +29,7 @@ export const routeDefs = {
 	"reunionMaurice": naturalism.extend("/reunion-Maurice"),
 	events,
 	"anduzeJazz": events.extend("/anduze-Jazz-Camp"),
+	"anduzeJazz2": events.extend("/anduze-Jazz-Camp2"),
 	"montpellierJazz": events.extend("/montpellier-Jazz-Week"),
 	"lindyHop": events.extend("/lindy-Hop-Summercamp"),
 	"airstep": events.extend("/airsteps-classic-routines"),
@@ -57,7 +58,7 @@ export const { RouteProvider, routes, useRoute } = createRouter(opts,
 
 export const groups = {
 	"naturalism": createGroup([routes.naturalism, routes.france, routes.antilles, routes.westCanada, routes.reunionMaurice]),
-	"events": createGroup([routes.events, routes.anduzeJazz, routes.montpellierJazz, routes.lindyHop, routes.airstep]),
+	"events": createGroup([routes.events, routes.anduzeJazz, routes.montpellierJazz, routes.lindyHop, routes.airstep, routes.anduzeJazz2]),
 	"portraits": createGroup([routes.portraits, routes.confluence, routes.etienne, routes.melodie, routes.annaJonatan, routes.duoKanto]),
 	"reportage": createGroup([routes.reportage, routes.brameCerf, routes.dolphin, routes.papetier, routes.wolf, routes.pandemic, routes.climat]),
 	"rest": createGroup([routes.home, routes.legal, routes.auteur, routes.urban])

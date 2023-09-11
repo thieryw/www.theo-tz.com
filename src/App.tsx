@@ -34,12 +34,16 @@ export function App() {
       "label": t("home")
     },
     {
-      ...routes.reportage().link,
-      "label": t("journalism")
+      ...routes.auteur().link,
+      "label": t("author")
     },
     {
       ...routes.naturalism().link,
       "label": t("naturalism")
+    },
+    {
+      ...routes.reportage().link,
+      "label": t("journalism")
     },
     {
       ...routes.events().link,
@@ -53,11 +57,6 @@ export function App() {
       ...routes.urban().link,
       "label": t("urban")
     },
-    {
-      ...routes.auteur().link,
-      "label": t("author")
-
-    }
   ], [t]);
 
 
@@ -131,7 +130,7 @@ export function App() {
             <div className={classes.bottomDiv}>
               <MuiLink className={classes.legal} {...routes.legal().link}><Text className={cx(classes.legalText, classes.bottomDivElement)} typo="label 2">{t("legal")}</Text></MuiLink>
               <Text className={classes.bottomDivElement} typo="label 2">{t("copyRight")}</Text>
-              <Text className={classes.bottomDivElement} typo="label 2">{t("author")}</Text>
+              <Text className={classes.bottomDivElement} typo="label 2">{t("design")}</Text>
             </div>
           }
         />

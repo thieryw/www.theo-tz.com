@@ -47,8 +47,8 @@ export const exposition: Distinctions = [
 export const press: Distinctions = [
 	{
 		"fr": {
-			"title": "á definir",
-			"reward": "Reportage dans la Gazette"
+			"title": "Prière de ne pas déranger",
+			"reward": "Reportage sur mon activité de photographe et écologue dans la Gazette de Montpellier n°1817 - du 13 au 19 avril 2023."
 		}
 	}
 ]

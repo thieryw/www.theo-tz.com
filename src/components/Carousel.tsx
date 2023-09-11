@@ -177,7 +177,9 @@ const useStyles = makeStyles<{ numberOfSlides: number }>()((theme, { numberOfSli
 		"slide": {
 			"position": "relative",
 			"width": imageWidth,
-			"overflow": "hidden"
+			"overflow": "hidden",
+			"display": "flex",
+			"flexDirection": "column"
 
 		},
 		"pictureWrapper": {

@@ -130,23 +130,23 @@ export function Home() {
 											"label": t("exploreButton"),
 											...cardLinksRef.current[index].link
 										}}
-										cardNumber="01"
+										cardNumber={`0${index + 1}`}
 									/>,
 									<Image
-										webpSrc={folder.webp[3].url}
-										jpgSrc={folder.jpg[3].url}
+										webpSrc={folder.webp[5].url}
+										jpgSrc={folder.jpg[5].url}
 									/>,
 								]
 							},
 							{
 								"nodes": [
 									<Image
-										webpSrc={folder.webp[4].url}
-										jpgSrc={folder.jpg[4].url}
+										webpSrc={folder.webp[3].url}
+										jpgSrc={folder.jpg[3].url}
 									/>,
 									<Image
-										webpSrc={folder.webp[5].url}
-										jpgSrc={folder.jpg[5].url}
+										webpSrc={folder.webp[4].url}
+										jpgSrc={folder.jpg[4].url}
 									/>,
 
 								],

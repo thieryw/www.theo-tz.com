@@ -12,7 +12,6 @@ import pandemicJpg from "../assets/img/ReportagePresentation/pandemie.jpg";
 import pandemicWebp from "../assets/webp/ReportagePresentation/pandemie.webp";
 import climateJpg from "../assets/img/ReportagePresentation/climat.jpg";
 import climateWebp from "../assets/webp/ReportagePresentation/climat.webp";
-import { CardLink } from "../components/CardLink";
 import type { Link } from "../tools/link";
 import { makeStyles, Text, breakpointsValues } from "../theme";
 import { declareComponentKeys, useTranslation } from "../i18n";

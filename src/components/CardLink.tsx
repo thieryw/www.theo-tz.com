@@ -1,4 +1,4 @@
-import { Link } from "../tools/link";
+import type { Link } from "../tools/link";
 import { makeStyles, Text } from "../theme";
 import { LinkButton } from "./LinkButton";
 
@@ -11,11 +11,12 @@ export type CardLinkProps = {
 		label: string;
 	} & Link;
 	cardNumber?: string;
+	onLinkFocus?: (e: React.FocusEvent<HTMLAnchorElement>)=> void;
 
 };
 
 export function CardLink(props: CardLinkProps) {
-	const { cardNumber, className, link, paragraph, title } = props;
+	const { cardNumber, className, link, paragraph, title, onLinkFocus } = props;
 	const { classes, cx } = useStyles(undefined, { props });
 
 	return <div className={cx(classes.root, className)}>
@@ -42,6 +43,7 @@ export function CardLink(props: CardLinkProps) {
 				}}
 				label={link.label}
 				link={link}
+				onFocus={onLinkFocus}
 			/>
 
 		}

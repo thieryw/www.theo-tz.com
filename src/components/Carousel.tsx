@@ -3,6 +3,8 @@ import { useConstCallback } from "powerhooks";
 import { makeStyles, breakpointsValues } from "../theme";
 import { Source } from "../tools/source";
 import type { ReactNode } from "react";
+import type { Link } from "../tools/link";
+import { CardLink } from "./CardLink";
 
 
 export type CarouselProps = {
@@ -14,6 +16,11 @@ export type CarouselProps = {
 			alt?: string;
 			sources?: Source[]
 		},
+		title?: string;
+		paragraph?: string;
+		link?: {
+			label: string;
+		} & Link;
 		extraContent?: ReactNode;
 	}[];
 };
@@ -21,23 +28,24 @@ export type CarouselProps = {
 export const Carousel = (props: CarouselProps) => {
 	const { slides, className } = props;
 	const trackRef = useRef<HTMLDivElement>(null);
+	const rootRef = useRef<HTMLDivElement>(null);
 
 	const { classes, cx, theme } = useStyles({
 		"numberOfSlides": slides.length
 	}, { props });
 
-	const nextPercentageFactor = useMemo(()=>{
-		if(theme.windowInnerWidth < breakpointsValues.md && theme.windowInnerWidth >= breakpointsValues.sm){
+	const nextPercentageFactor = useMemo(() => {
+		if (theme.windowInnerWidth < breakpointsValues.md && theme.windowInnerWidth >= breakpointsValues.sm) {
 			return 2;
 		}
 
-		if(theme.windowInnerWidth < breakpointsValues.sm){
+		if (theme.windowInnerWidth < breakpointsValues.sm) {
 			return 4;
 		};
 
 		return 1;
 
-	},[theme.windowInnerWidth])
+	}, [theme.windowInnerWidth])
 
 
 	const handleOnDown = useConstCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent> | React.TouchEvent<HTMLDivElement>) => {
@@ -70,7 +78,7 @@ export const Carousel = (props: CarouselProps) => {
 
 		trackRef.current.dataset.percentage = `${nextPercentage}`;
 
-		(()=>{
+		(() => {
 			if (!Element.prototype.animate) {
 				trackRef.current.style.transition = 'transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)';
 				trackRef.current.style.transform = `translate(${nextPercentage}%)`;
@@ -84,7 +92,7 @@ export const Carousel = (props: CarouselProps) => {
 			});
 		})()
 
-		if(!Element.prototype.animate){
+		if (!Element.prototype.animate) {
 			return;
 		}
 
@@ -101,8 +109,17 @@ export const Carousel = (props: CarouselProps) => {
 		}
 	});
 
+	const handleFocus = useConstCallback(() => {
+		if (!rootRef.current) {
+			return;
+		}
+		rootRef.current.scrollLeft = 0;
+	});
+
+
 	return (
 		<div
+			ref={rootRef}
 			className={cx(classes.root, className)}
 			onMouseDown={handleOnDown}
 			onMouseUp={handleOnUp}
@@ -118,7 +135,7 @@ export const Carousel = (props: CarouselProps) => {
 				ref={trackRef}
 			>
 				{
-					slides.map(({ image: { src, alt, sources }, extraContent }, index) => <div style={{
+					slides.map(({ image: { src, alt, sources }, title, link, paragraph, extraContent }, index) => <div style={{
 						"marginLeft": index === 0 ? undefined : theme.spacing(5)
 					}} key={src} className={classes.slide}>
 						<div className={classes.pictureWrapper}>
@@ -134,8 +151,24 @@ export const Carousel = (props: CarouselProps) => {
 									alt={alt ?? "carousel picture"}
 								/>
 							</picture>
-
 						</div>
+						{
+							(title !== undefined || paragraph !== undefined || link !== undefined) &&
+							<CardLink
+								title={title}
+								paragraph={paragraph}
+								link={link}
+								className={classes.card}
+								classes={{
+									"title": classes.cardTitle,
+									"paragraph": classes.cardParagraph,
+									"linkLabel": classes.cardLinkLabel,
+									"titleWrapper": classes.cardTitleWrapper
+								}}
+								onLinkFocus={handleFocus}
+							/>
+
+						}
 						{
 							extraContent !== undefined &&
 							extraContent
@@ -164,6 +197,11 @@ const useStyles = makeStyles<{ numberOfSlides: number }>()((theme, { numberOfSli
 			"position": "relative",
 			"left": "50%",
 			"userSelect": "none",
+			"cursor": "grab",
+			":active": {
+				"cursor": "grabbing"
+
+			},
 			"width": imageWidth * numberOfSlides + (() => {
 				if (numberOfSlides === 1) {
 					return 0;
@@ -185,12 +223,36 @@ const useStyles = makeStyles<{ numberOfSlides: number }>()((theme, { numberOfSli
 		"pictureWrapper": {
 
 		},
+		"card": {
+			"maxWidth": "none",
+			"width": "100%",
+			"background": "none",
+			"padding": 0,
+			"marginTop": theme.spacing(4),
+			"justifyContent": "space-between",
+			"flexGrow": 1
+		},
+		"cardTitleWrapper": {
+			"marginBottom": theme.spacing(4)
+
+
+		},
+		"cardTitle": {
+			"color": theme.colors.palette.dark.greyVariant1
+		},
+		"cardParagraph": {
+
+			"color": theme.colors.palette.dark.greyVariant3,
+		},
+		"cardLinkLabel": {
+			"color": theme.colors.palette.dark.greyVariant1
+		},
 		"image": {
 			"width": imageWidth,
 			"height": 380,
 			"objectFit": "cover",
-			"objectPosition": (()=>{
-				if(!Element.prototype.animate){
+			"objectPosition": (() => {
+				if (!Element.prototype.animate) {
 					return "center";
 				}
 

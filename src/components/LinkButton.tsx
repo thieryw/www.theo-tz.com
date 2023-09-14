@@ -10,22 +10,31 @@ export type LinkButtonProps = {
 	label: string;
 	className?: string;
 	classes?: Partial<ReturnType<typeof useStyles>["classes"]>;
+	onFocus?: (e: React.FocusEvent<HTMLAnchorElement>) => void;
 };
 
 export const LinkButton = memo((props: LinkButtonProps) => {
-	const { link, className, label } = props;
+	const { link, className, label, onFocus } = props;
 	const { classes, cx } = useStyles(undefined, { props });
 	const context = useContext(ScrollContext);
 
 	const scrollToTop = useConstCallback(() => {
 		context?.scrollToTop();
 	});
+	const handleFocus = useConstCallback((e: React.FocusEvent<HTMLAnchorElement>) => {
+
+		if(onFocus === undefined){
+			return;
+		};
+		onFocus(e);
+
+	});
 
 	return (
 		<div className={cx(classes.root, className)}>
 			<div className={classes.decorativeLine}></div>
 			<div onClick={scrollToTop} className={classes.linkWrapper}>
-				<a className={classes.link} {...link}><Text className={classes.label} typo="navigation label">{label}</Text></a>
+				<a onFocus={handleFocus} className={classes.link} {...link}><Text className={classes.label} typo="navigation label">{label}</Text></a>
 			</div>
 		</div>
 	);

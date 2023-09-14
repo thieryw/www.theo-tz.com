@@ -89,21 +89,12 @@ export function Reportages() {
 							}
 						]
 					},
-					"extraContent": <CardLink
-						className={classes.card}
-						classes={{
-							"title": classes.cardTitle,
-							"paragraph": classes.cardParagraph,
-							"linkLabel": classes.cardLinkLabel,
-							"titleWrapper": classes.cardTitleWrapper
-						}}
-						title={title}
-						paragraph={paragraph}
-						link={{
-							...link,
-							"label": t("linkLabel")
-						}}
-					/>
+					title,
+					paragraph,
+					"link":{
+						...link,
+						"label": t("linkLabel")
+					}
 				}))
 			}
 		/>
@@ -141,30 +132,6 @@ const useStyles = makeStyles()(theme => {
 			"marginBottom": isSmallScreen ? theme.spacing(9) : undefined
 
 		},
-		"card": {
-			"maxWidth": "none",
-			"width": "100%",
-			"background": "none",
-			"padding": 0,
-			"marginTop": theme.spacing(4),
-			"justifyContent": "space-between",
-			"flexGrow": 1
-		},
-		"cardTitleWrapper": {
-			"marginBottom": theme.spacing(4)
-
-
-		},
-		"cardTitle": {
-			"color": theme.colors.palette.dark.greyVariant1
-		},
-		"cardParagraph": {
-
-			"color": theme.colors.palette.dark.greyVariant3,
-		},
-		"cardLinkLabel": {
-			"color": theme.colors.palette.dark.greyVariant1
-		}
 	})
 })
 

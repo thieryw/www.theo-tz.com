@@ -43,7 +43,7 @@ export const {
 				"portraits": "PORTRAITS",
 				"urban": "URBAIN",
 				"legal": "Mentions legales",
-				"copyRight": "Copyright © 2021 Théo Tzélépoglou. Tous droits réservés",
+				"copyRight": "Copyright © 2023 Théo Tzélépoglou. Tous droits réservés",
 				"author": "AUTEUR",
 				"design": "Conçu et développé par StarkerDesign."
 			},
@@ -95,11 +95,11 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"naturTitle": "Naturalisme",
 				"naturParagraph": "la vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible.",
 				"articleTitle": "Reportages",
-				"articleParagraph": "Textes et photos parus dans la presse. Vous souhaitez promouvoir votre activité, immortaliser un évènement ou avoir des illustrations pour votre site internet ? Je saurai capturer l’authenticité de l’instant.",
+				"articleParagraph": "Textes et photos parus dans la presse.",
 				"eventTitle": "Evenements",
-				"eventParagraph": "Je peux couvrir des festivals de danse et de musique, ou tout autre évènement en lien avec l'art ou l'écologie.",
+				"eventParagraph": "Clichés réalisés dans le cadre de festivals de danse, de musique, et de tout autre évènement en lien avec l'art ou l'écologie.",
 				"urbanTitle": "Urbain",
-				"urbanParagraph": "En numérique ou avec mon argentique, retrouvez quelques clichés de mes pérégrinations urbaines.",
+				"urbanParagraph": "En numérique ou en argentique, retrouvez quelques clichés de mes pérégrinations urbaines.",
 				"portraitTitle": "Portraits",
 				"portraitParagraph": "En studio ou en extérieur, je vous propose de saisir des instants de vie qui vous ressemblent. Seul, en couple ou en groupe, je m’adapterai à vos envies."
 			},
@@ -151,7 +151,7 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 			"Papetier": {
 				"text": `ormé au Japon à la technique du papier washi, un couple de l’Hérault fabrique à la main un papier sans aucun produit chimique. Un savoir-faire minutieux, qui est une réelle alternative à l’industrie papetière peu écologique. Texte et photos pour [Reporterre](https://reporterre.net/A-la-main-et-sans-produit-chimique-ils-fabriquent-du-papier-ecologique?fbclid=IwAR0p3EGc3J8dOcC-k-AST2WLMS0EqCUG14p_Nj9CJTp3fF_XXyZwyNuUtNI#nb1)`,
 				"textFirstLetter": "F",
-				"pageName": "À LA MAIN ET SANS PRODUIT CHIMIQUE, ILS FABRIQUENT DU PAPIER ÉCOLOGIQUE"
+				"pageName": "DANS L'HÉRAULT, ILS FABRIQUENT DU PAPIER ÉCOLOGIQUE"
 			},
 			"WolfDordogne": {
 				"pageName": "LE RETOUR DU LOUP EN DORDOGNE",

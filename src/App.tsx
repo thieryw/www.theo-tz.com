@@ -1,7 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 import { routes, useRoute, groups } from "./router";
 import { useTranslation, declareComponentKeys } from "i18n";
 import signature from "./assets/png/signature.png";
+import smallSignature from "./assets/img/bio/signature.png";
 import { makeStyles, breakpointsValues, Text } from "./theme";
 import { Home } from "./pages/Home";
 import { Naturalism } from "./pages/Naturalism";
@@ -16,18 +17,28 @@ import { Pandemic } from "./pages/Pandemic";
 import { ClimateMarch } from "./pages/ClimateMarch";
 import { Events } from "./pages/Events";
 import { Urbain } from "./pages/Urbain";
-import { SmoothScrollProvider } from "./components/SmoothScrollProvider";
+import { ScrollContext } from "./components/SmoothScrollProvider";
 import { Footer } from "./components/Footer";
 import instagramIconUrl from "./assets/svg/instagram.svg";
 import facebookIconUrl from "./assets/svg/facebook.svg";
 import mailIconUrl from "./assets/svg/mail.svg";
 import MuiLink from "@mui/material/Link";
 import { Header } from "components/Header";
+import { useConstCallback } from "powerhooks/useConstCallback";
 
 
 export function App() {
+
   const route = useRoute();
   const { t } = useTranslation({ App });
+  const context = useContext(ScrollContext);
+
+
+  const scrollToTop = useConstCallback(()=>{
+    console.log("ok");
+    context?.scrollToTop();
+  })
+
   const links = useMemo(() => [
     {
       ...routes.home().link,
@@ -65,8 +76,14 @@ export function App() {
 
 
   return (
-    <SmoothScrollProvider>
       <div className={classes.root}>
+        {
+          route.name !== "home" &&
+          <div onClick={scrollToTop} className={classes.homeLink}>
+            <a {...routes.home().link}><img className={classes.homeLinkImg} alt="smallSignature" src={smallSignature} /></a>
+
+          </div>
+        }
         <Header
           links={links}
           title={<img className={classes.logo} src={signature} alt="logo" />}
@@ -107,7 +124,7 @@ export function App() {
           className={classes.footer}
 
 
-          title={<img className={classes.signatureFooter} src={signature} alt="logo signature" />}
+          title={<a {...routes.home().link}><img onClick={scrollToTop} className={classes.signatureFooter} src={signature} alt="logo signature" /></a>}
           socialMediaLinks={[
             {
               "href": "https://www.instagram.com/theo_tz_wildlife/",
@@ -137,8 +154,6 @@ export function App() {
 
 
       </div>
-
-    </SmoothScrollProvider>
   );
 }
 
@@ -148,6 +163,21 @@ const useStyles = makeStyles()((theme) => {
       "minHeight": "100vh",
       "display": "flex",
       "flexDirection": "column",
+    },
+    "homeLink": {
+      "position": "fixed",
+      "top": theme.spacing(4),
+      "left": theme.spacing(4),
+      "zIndex": 8000,
+      "transition": "transform 400ms",
+      ":hover": {
+        "transform": "scale(1.1)"
+
+      }
+    },
+    "homeLinkImg": {
+      "width": theme.spacing(8)
+
     },
     "body": {
       "flex": "1 0 auto"

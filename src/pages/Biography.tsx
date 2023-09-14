@@ -39,7 +39,7 @@ export function Biography() {
 					className={classes.articleLink}
 					label={t("linkToArticlesLabel")}
 					link={{
-						"href": "",
+						"href": "https://ginkio.com/theo-tz",
 					}}
 				/>
 

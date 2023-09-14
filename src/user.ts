@@ -39,7 +39,7 @@ export const exposition: Distinctions = [
 	{
 		"fr": {
 			"title": "octobre-décembre 2022",
-			"reward": "Lumières d’Occitanie » au Bonobo café, Montpellier"
+			"reward": "« Lumières d’Occitanie » au Bonobo café, Montpellier"
 		}
 	}
 ];

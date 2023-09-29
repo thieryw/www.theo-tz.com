@@ -73,6 +73,8 @@ export function Reportages() {
 	return <div className={classes.root}>
 		<Text className={classes.pageTitle} typo="page heading">{t("pageTitle")}</Text>
 		<Carousel
+			className={classes.carousel}
+			startingPercentage={20}
 			slides={
 				carouselDataRef.current.map(({jpeg, link, paragraph, title, webp }) => ({
 					"image": {
@@ -103,7 +105,6 @@ export function Reportages() {
 
 
 const useStyles = makeStyles()(theme => {
-	const isSmallScreen = theme.windowInnerWidth < breakpointsValues.md;
 	return ({
 		"root": {
 			"width": "100vw",
@@ -113,24 +114,14 @@ const useStyles = makeStyles()(theme => {
 		},
 		"pageTitle": {
 			"position": "relative",
-			"top": isSmallScreen ? undefined : 340,
-			"left": (() => {
-				if (theme.windowInnerWidth < breakpointsValues["lg+"] && theme.windowInnerWidth >= breakpointsValues.lg) {
-					return "15%";
-				}
-				if (theme.windowInnerWidth < breakpointsValues.lg && theme.windowInnerWidth >= breakpointsValues.md) {
-					return "10%";
-				}
-				if (isSmallScreen) {
-					return undefined;
-				}
-				return "20%";
-			})(),
-			"textAlign": isSmallScreen ? "center" : undefined,
-			"marginTop": isSmallScreen ? theme.spacing(8) : undefined,
-			"marginBottom": isSmallScreen ? theme.spacing(9) : undefined
+			"textAlign": "center",
+			"marginTop": theme.spacing(8),
+			"marginBottom": theme.spacing(9)
 
 		},
+		"carousel": {
+			"marginBottom": theme.spacing(9)
+		}
 	})
 })
 

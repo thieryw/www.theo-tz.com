@@ -70,9 +70,12 @@ export function Home() {
 				<div className={classes.title}>
 					<div className={classes.upper}>
 						<Text className={classes.name} typo="page heading">{t("name")}</Text>
-						<Text className={classes.journalist} typo="page heading">{t("expertise1")}</Text>
 					</div>
-					<Text className={classes.ecologist} typo="page heading">{t("expertise2")}</Text>
+					<div className={classes.expertiseWrapper}>
+						<Text className={classes.journalist} typo="page heading">{t("expertise1")}</Text>
+						<Text className={classes.ecologist} typo="page heading">{t("expertise2")}</Text>
+
+					</div>
 					<div className={classes.lower}>
 						<Text className={classes.and} typo="page heading">{t("and")}</Text>
 
@@ -166,16 +169,29 @@ const useStyles = makeStyles()(theme => {
 	const titleWordSpacing = "0.5rem"
 
 	const paddingRightLeft = (() => {
-		if (theme.windowInnerWidth >= breakpointsValues["lg+"]) {
-			return 8;
+		if (theme.windowInnerWidth >= 1690) {
+			return "15vw";
 		};
-		if (theme.windowInnerWidth >= breakpointsValues.lg && theme.windowInnerWidth < breakpointsValues["lg+"]) {
+		if(theme.windowInnerWidth < 1690 && theme.windowInnerWidth >= 1490){
+			return "10vw";
+		}
+		if(theme.windowInnerWidth < 1490 && theme.windowInnerWidth >= 1360){
+			return "5vw";
+		}
+		if(theme.windowInnerWidth < 1360 && theme.windowInnerWidth >= breakpointsValues.lg){
+			return "2vw";
+		}
+		if (theme.windowInnerWidth < breakpointsValues.lg && theme.windowInnerWidth >= 928) {
+			return `${theme.spacing(8)}px`;
+		}
+		if(theme.windowInnerWidth < 928 && theme.windowInnerWidth >= 713){
+			return `${theme.spacing(6)}px`
+		}
+		return `${theme.spacing(5)}px`
+		/*if (theme.windowInnerWidth >= breakpointsValues.lg && theme.windowInnerWidth < breakpointsValues["lg+"]) {
 			return 5;
 		};
-		if (theme.windowInnerWidth >= breakpointsValues.md && theme.windowInnerWidth < breakpointsValues.lg) {
-			return 8;
-		}
-		return 4;
+		return 4;*/
 	})();
 
 
@@ -183,13 +199,14 @@ const useStyles = makeStyles()(theme => {
 		"galleryPresentation": {
 			"display": "flex",
 			"flexDirection": "column",
-			"alignItems": theme.windowInnerWidth >= breakpointsValues["lg+"] || theme.windowInnerWidth < breakpointsValues.sm ? "center" : "flex-end",
+			//"alignItems": theme.windowInnerWidth >= breakpointsValues["lg+"] || theme.windowInnerWidth < breakpointsValues.sm ? "center" : "flex-end",
 			"position": "relative",
-			"marginTop": theme.windowInnerWidth >= 819 ? -theme.spacing(12) : theme.spacing(8),
+			"marginTop": theme.windowInnerWidth >= 819 ? -theme.spacing(15) : theme.spacing(8),
+			"alignItems": theme.windowInnerWidth >= 713 ? "flex-end" : "center"
 
 		},
 		"sexyColumnLayoutRest": {
-			"alignSelf": "center",
+			//"alignSelf": "center",
 			...theme.spacing.topBottom("margin", `${theme.spacing(4)}px`)
 
 		},
@@ -201,20 +218,24 @@ const useStyles = makeStyles()(theme => {
 			} : {})
 		},
 		"columnOne": {
-			...(theme.windowInnerWidth < breakpointsValues.sm ? {
+			...(theme.windowInnerWidth < 713 ? {
 				"display": "none"
 			} : {})
 
 		},
 		"root": {
 			"paddingTop": theme.spacing(11),
-			...theme.spacing.rightLeft("padding", `${theme.spacing(paddingRightLeft)}px`),
+			...theme.spacing.rightLeft("padding", `${paddingRightLeft}`),
+			//...theme.spacing.rightLeft("padding", "15vw")
+			/*"display": "flex",
+			"justifyContent": "space-between"*/
+
 		},
 		"titleWrapper": {
 			"zIndex": 300,
 			"position": "relative",
 			"display": "flex",
-			"justifyContent": theme.windowInnerWidth >= breakpointsValues.sm ? undefined : "center"
+			"justifyContent": theme.windowInnerWidth >= 713 ? undefined : "center"
 		},
 		"title": {
 			"display": "grid",
@@ -223,8 +244,11 @@ const useStyles = makeStyles()(theme => {
 
 		},
 		"upper": {
+
+		},
+		"expertiseWrapper": {
 			"display": "flex",
-			"flexWrap": "wrap"
+			"flexDirection": theme.windowInnerWidth < 500 ? "column" : undefined
 
 		},
 		"lower": {
@@ -236,17 +260,16 @@ const useStyles = makeStyles()(theme => {
 
 		},
 		"name": {
-			"marginRight": titleWordSpacing,
-			"fontStyle": "italic"
+
 		},
 		"journalist": {
-			"textTransform": "uppercase"
+			"textTransform": "capitalize",
+			"marginRight": "1rem"
 		},
 		"ecologist": {
-			"textTransform": "uppercase"
+			"textTransform": "capitalize"
 		},
 		"photographer": {
-			"fontStyle": "italic"
 		},
 		"linkWrapper": {
 			"display": "flex",

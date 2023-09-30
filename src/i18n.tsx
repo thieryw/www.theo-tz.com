@@ -84,8 +84,8 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 
 			},
 			"Home": {
-				"name": "Théo,",
-				"expertise1": "journaliste",
+				"name": "Théo Tzélépoglou,",
+				"expertise1": "journaliste,",
 				"expertise2": "écologue",
 				"and": "&",
 				"artisticOccupation": "Photographe",

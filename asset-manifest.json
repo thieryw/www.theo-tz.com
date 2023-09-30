@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/www.theo-tz.com/static/js/main.734f3b34.js",
+    "main.js": "/www.theo-tz.com/static/js/main.ee1130d2.js",
     "static/media/large_10.jpg": "/www.theo-tz.com/static/media/large_10.40e24d3cf03e5353724b.jpg",
     "static/media/large_13.jpg": "/www.theo-tz.com/static/media/large_13.24275b0bb336f1d2adc3.jpg",
     "static/media/large_10.webp": "/www.theo-tz.com/static/media/large_10.2f55ecfe1321f7a54b7a.webp",
@@ -2583,14 +2583,14 @@
     "static/media/miniature_45.webp": "/www.theo-tz.com/static/media/miniature_45.a51ea3f486914c155c6a.webp",
     "static/media/miniature_40.webp": "/www.theo-tz.com/static/media/miniature_40.5e39889f4cad1bd4df3c.webp",
     "static/media/instagram.svg": "/www.theo-tz.com/static/media/instagram.a38167c30c669eb08f58c2c354379635.svg",
-    "static/media/cancel.svg": "/www.theo-tz.com/static/media/cancel.da5c42223be72e07b42078ba244d26c0.svg",
     "index.html": "/www.theo-tz.com/index.html",
+    "static/media/cancel.svg": "/www.theo-tz.com/static/media/cancel.da5c42223be72e07b42078ba244d26c0.svg",
     "static/media/next.svg": "/www.theo-tz.com/static/media/next.2dc7a76f28f4feac65e5d1d0b70e240b.svg",
     "static/media/mail.svg": "/www.theo-tz.com/static/media/mail.77b221170a3b3361e95dbf5991a29783.svg",
     "static/media/facebook.svg": "/www.theo-tz.com/static/media/facebook.49d2918de98c6eb83c4a3215884fdd57.svg",
-    "main.734f3b34.js.map": "/www.theo-tz.com/static/js/main.734f3b34.js.map"
+    "main.ee1130d2.js.map": "/www.theo-tz.com/static/js/main.ee1130d2.js.map"
   },
   "entrypoints": [
-    "static/js/main.734f3b34.js"
+    "static/js/main.ee1130d2.js"
   ]
 }

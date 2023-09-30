@@ -103,7 +103,9 @@ const useStyles = makeStyles()((theme) => {
 		},
 		"bioText": {
 			"maxWidth": 400,
-			"marginTop": theme.spacing(7)
+			"marginTop": theme.spacing(7),
+			"position": "relative",
+			"top": "-1.3rem"
 
 		},
 		"bioInnerParagraph": {
@@ -225,7 +227,8 @@ const { Distinctions } = (() => {
 			},
 			"reward": {
 				"fontWeight": "bold",
-				"textAlign": theme.windowInnerWidth < breakpointsValues.sm ? "center" : undefined
+				"textAlign": theme.windowInnerWidth < breakpointsValues.sm ? "center" : undefined,
+				"maxWidth": 400
 			},
 			"titleWrapper": {
 				"display": "flex",

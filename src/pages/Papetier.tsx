@@ -53,7 +53,7 @@ const useStyles = makeStyles()(theme => {
 		"banner": {
 			"height": "100vh",
 			"maxHeight": 1080,
-			"minHeight": theme.windowInnerWidth < breakpointsValues.sm ? 750 : 1080,
+			"minHeight": theme.windowInnerWidth < breakpointsValues.sm ? 750 : 800,
 			"display": "flex",
 			"alignItems": "center",
 			"justifyContent": "center",
@@ -121,6 +121,7 @@ const useStyles = makeStyles()(theme => {
 			"justifyContent": "center",
 			"marginTop": -theme.spacing(13),
 			"position": "relative",
+			"marginBottom": theme.spacing(9)
 
 		},
 		"background": {

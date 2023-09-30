@@ -49,10 +49,10 @@ export const {
 			},
 			"Naturalism": {
 				"pageName": "NATURALISME",
-				"franceTab": "FRANCE",
-				"antillesTab": "ANTILLES",
-				"canadaTab": "OUEST CANADIEN",
-				"mauriceTab": "REUNION & ILE MAURICE",
+				"franceTab": "France",
+				"antillesTab": "Antilles",
+				"canadaTab": "Ouest Canadien",
+				"mauriceTab": "Réunion & Ile Maurice",
 				"text": "a vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible. Avec le temps et multipliant les heures en pleine nature tout autour du monde, j’ai appris à observer, sentir et appréhender la complexité du monde animal et végétal. Cette biodiversité m’a appris que nous sommes semblables à travers nos émotions et nos comportements, mais par-dessus tout, elle m’a appris à percevoir une partie de moi-même dans chaque regard sauvage croisant mon chemin. Je suis persuadé que le progrès technologique et notre cantonnement citadin ronge le lien, la connexion à ce grand tout dont nous faisons partie. C’est pourtant paradoxalement grâce aux dernières technologies que je peux retranscrire au mieux mon regard sur la nature. J’y vois le signe que nous avons entre nos mains le pouvoir de choisir quoi faire du fruit de l’intelligence humaine : La laisser divaguer dans le superflu, ou la mettre au service d’une quête d’unité avec le vivant. À travers ces photographies, je souhaite vous proposer un regard simple et artistique sur la vie qui nous entoure.",
 				"textFirstLetter": "L"
 

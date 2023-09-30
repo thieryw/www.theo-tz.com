@@ -2,7 +2,7 @@ import { useMemo, useContext } from "react";
 import { routes, useRoute, groups } from "./router";
 import { useTranslation, declareComponentKeys } from "i18n";
 import signature from "./assets/png/signature.png";
-import smallSignature from "./assets/img/bio/signature.png";
+import smallSignature from "./assets/png/signature-without-job.png";
 import { makeStyles, breakpointsValues, Text } from "./theme";
 import { Home } from "./pages/Home";
 import { Naturalism } from "./pages/Naturalism";
@@ -72,7 +72,7 @@ export function App() {
 
 
 
-  const { classes, cx, theme } = useStyles();
+  const { classes, cx } = useStyles();
 
 
   return (
@@ -129,17 +129,17 @@ export function App() {
             {
               "href": "https://www.instagram.com/theo_tz_wildlife/",
               "icon": instagramIconUrl,
-              "iconWidth": theme.spacing(6)
+              "iconWidth": 30
             },
             {
               "href": "https://www.facebook.com/theotzelepoglouphotography/",
               "icon": facebookIconUrl,
-              "iconWidth": theme.spacing(6)
+              "iconWidth": 30
             },
             {
               "href": "mailto:theo.tzelepoglou@gmail.com",
               "icon": mailIconUrl,
-              "iconWidth": theme.spacing(6)
+              "iconWidth": 30
             }
           ]}
 
@@ -167,7 +167,7 @@ const useStyles = makeStyles()((theme) => {
     "homeLink": {
       "position": "fixed",
       "top": theme.spacing(4),
-      "left": theme.spacing(4),
+      "left": theme.spacing(6),
       "zIndex": 8000,
       "transition": "transform 400ms",
       ":hover": {

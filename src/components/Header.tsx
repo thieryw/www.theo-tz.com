@@ -60,6 +60,7 @@ export function Header(props: HeaderProps) {
 				>
 					<div className={cx(classes.hamburgerLine1, classes.hamburgerLine)}></div>
 					<div className={cx(classes.hamburgerLine2, classes.hamburgerLine)}></div>
+					<div className={classes.hamburgerLine3}></div>
 				</button>
 
 			</div>
@@ -100,7 +101,7 @@ export function Header(props: HeaderProps) {
 									key={rest.href}
 									className={classes.logoLink} {...rest}
 								>{typeof logo === "string" ?
-									<Logo width={40} logoUrl={logo} /> :
+									<Logo width={30} logoUrl={logo} /> :
 									logo
 									}
 								</a>)
@@ -172,7 +173,7 @@ const useStyles = makeStyles<{ isOpen: boolean }>()((theme, { isOpen }) => {
 			"border": "none",
 			"cursor": "pointer",
 			"top": theme.spacing(6),
-			"right": theme.spacing(6),
+			"right": theme.spacing(7),
 			"padding": 0
 		},
 		"menu": {
@@ -213,8 +214,17 @@ const useStyles = makeStyles<{ isOpen: boolean }>()((theme, { isOpen }) => {
 			//"marginBottom": 15
 		},
 		"hamburgerLine2": {
-			"top": isOpen ? "50%" : 26,
+			"top": isOpen ? "50%" : 22,
 			"transform": isOpen ? "translate(-50%, -50%) rotate(-45deg)" : undefined,
+		},
+		"hamburgerLine3": {
+			"height": 2,
+			"backgroundColor": theme.colors.palette[isOpen ? "light" : "dark"].greyVariant1,
+			"position": "absolute",
+			"width": toggleButtonWidthAndHeight / 2,
+			"top": 30,
+			"opacity": isOpen ? 0 : 1
+
 		}
 
 	})

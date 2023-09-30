@@ -154,14 +154,14 @@ const useStyles = makeStyles()(
 			} : {})
 		},
 		"socialLink": {
-			...theme.spacing.rightLeft("margin", `${theme.spacing(2)}px`),
+			...theme.spacing.rightLeft("margin", `${theme.spacing(4)}px`),
 			"cursor": "pointer",
 			"& svg": {
 				"fill": theme.colors.palette.light.greyVariant1,
+				"transition": "transform 300ms",
 				":hover": {
-					"fill": "lightblue"
+					"transform": "scale(1.2)"
 				},
-				"transition": "fill 400ms"
 
 			}
 

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/www.theo-tz.com/static/js/main.ee1130d2.js",
+    "main.js": "/www.theo-tz.com/static/js/main.3c53992e.js",
     "static/media/large_10.jpg": "/www.theo-tz.com/static/media/large_10.40e24d3cf03e5353724b.jpg",
     "static/media/large_13.jpg": "/www.theo-tz.com/static/media/large_13.24275b0bb336f1d2adc3.jpg",
     "static/media/large_10.webp": "/www.theo-tz.com/static/media/large_10.2f55ecfe1321f7a54b7a.webp",
@@ -2588,9 +2588,9 @@
     "static/media/next.svg": "/www.theo-tz.com/static/media/next.2dc7a76f28f4feac65e5d1d0b70e240b.svg",
     "static/media/mail.svg": "/www.theo-tz.com/static/media/mail.77b221170a3b3361e95dbf5991a29783.svg",
     "static/media/facebook.svg": "/www.theo-tz.com/static/media/facebook.49d2918de98c6eb83c4a3215884fdd57.svg",
-    "main.ee1130d2.js.map": "/www.theo-tz.com/static/js/main.ee1130d2.js.map"
+    "main.3c53992e.js.map": "/www.theo-tz.com/static/js/main.3c53992e.js.map"
   },
   "entrypoints": [
-    "static/js/main.ee1130d2.js"
+    "static/js/main.3c53992e.js"
   ]
 }

@@ -52,9 +52,9 @@ const useStyles = makeStyles<void, "label">()((theme, _params, classes) => ({
 		"marginRight": theme.spacing(3)
 	},
 	"label": {
-		"fontSize": "1rem",
-		"fontWeight": "500",
-		"letterSpacing": "0.3rem",
+		"fontSize": "0.7rem",
+		"fontWeight": "1000",
+		"letterSpacing": "0.4rem",
 		"transition": "transform 300ms",
 	},
 	"link": {

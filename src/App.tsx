@@ -80,7 +80,7 @@ export function App() {
         {
           route.name !== "home" &&
           <div onClick={scrollToTop} className={classes.homeLink}>
-            <a {...routes.home().link}><img className={classes.homeLinkImg} alt="smallSignature" src={smallSignature} /></a>
+            <a {...routes.home().link}><img className={classes.homeLinkImg} alt="Return to home page" src={smallSignature} /></a>
 
           </div>
         }
@@ -92,14 +92,17 @@ export function App() {
               {
                 "href": "https://www.facebook.com/theotzelepoglouphotography/",
                 "logo": facebookIconUrl,
+                "linkText": "Link to Facebook"
               },
               {
                 "href": "https://www.instagram.com/theo_tz_wildlife/",
-                "logo": instagramIconUrl
+                "logo": instagramIconUrl,
+                "linkText": "Link to Instagram"
               },
               {
                 "href": "mailto:theo.tzelepoglou@gmail.com",
-                "logo": mailIconUrl
+                "logo": mailIconUrl,
+                "linkText": "Mail link"
               }
             ]
           }
@@ -127,19 +130,22 @@ export function App() {
           title={<a {...routes.home().link}><img onClick={scrollToTop} className={classes.signatureFooter} src={signature} alt="logo signature" /></a>}
           socialMediaLinks={[
             {
-              "href": "https://www.instagram.com/theo_tz_wildlife/",
-              "icon": instagramIconUrl,
-              "iconWidth": 30
-            },
-            {
               "href": "https://www.facebook.com/theotzelepoglouphotography/",
               "icon": facebookIconUrl,
-              "iconWidth": 30
+              "iconWidth": 30,
+              "linkText": "Link to Facebook"
+            },
+            {
+              "href": "https://www.instagram.com/theo_tz_wildlife/",
+              "icon": instagramIconUrl,
+              "iconWidth": 30,
+              "linkText": "Link to Instagram"
             },
             {
               "href": "mailto:theo.tzelepoglou@gmail.com",
               "icon": mailIconUrl,
-              "iconWidth": 30
+              "iconWidth": 30,
+              "linkText": "Mail link"
             }
           ]}
 

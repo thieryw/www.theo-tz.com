@@ -8,10 +8,11 @@ type LogoProps = {
     fill?: string;
     width?: number;
     height?: number;
+    ariaLabel?: string;
 };
 
 export const Logo = memo((props: LogoProps) => {
-    const { className, logoUrl, fill, height, width } = props;
+    const { className, logoUrl, fill, height, width, ariaLabel } = props;
 
     const { classes, cx } = useStyles({ fill, width, height });
 
@@ -19,9 +20,10 @@ export const Logo = memo((props: LogoProps) => {
         <ReactSVG
             src={logoUrl}
             className={cx(classes.root, classes.svg, className)}
+            aria-label={ariaLabel}
         />
     ) : (
-        <img src={logoUrl} className={cx(classes.root, className)} alt="logo" />
+        <img aria-label={ariaLabel} src={logoUrl} className={cx(classes.root, className)} alt="logo" />
     );
 });
 

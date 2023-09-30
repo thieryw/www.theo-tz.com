@@ -304,7 +304,7 @@ const { Image } = (() => {
 				type="image/jpeg"
 			/>
 
-			<img className={classes.root} src={webpSrc} alt={alt ?? "gallery presentation"} />
+			<img className={classes.root} width="300px" height="500px" src={webpSrc} alt={alt ?? "gallery presentation"} />
 
 
 
@@ -315,7 +315,8 @@ const { Image } = (() => {
 		return ({
 			"root": {
 				"width": "100%",
-				"minHeight": "100%"
+				//"minHeight": "100%"
+				"height": "auto"
 
 			}
 		})

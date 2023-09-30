@@ -20,7 +20,7 @@ export function Biography() {
 				<picture>
 					<source type="image/webp" srcSet={portraitWebp} />
 					<source type="image/jpeg" srcSet={portraitJpg} />
-					<img className={classes.portrait} src={portraitWebp} alt="portrait de l'auteur" />
+					<img width="400px" height="550px" className={classes.portrait} src={portraitWebp} alt="portrait de l'auteur" />
 				</picture>
 				<div className={classes.bioInnerParagraph}>
 					<div className={classes.decoLine}></div>

@@ -16,6 +16,7 @@ export type HeaderProps = {
 		logo: ReactNode;
 		href: string;
 		onClick?: () => void;
+		linkText?: string;
 	}[],
 	className?: string;
 	classes?: Partial<ReturnType<typeof useStyles>["classes"]>;
@@ -97,9 +98,11 @@ export function Header(props: HeaderProps) {
 						logoLinks !== undefined &&
 						<div className={classes.logoLinks}>
 							{
-								logoLinks.map(({ logo, ...rest }) => <a
+								logoLinks.map(({ logo, linkText, ...rest}) => <a
 									key={rest.href}
-									className={classes.logoLink} {...rest}
+									className={classes.logoLink} 
+									{...rest}
+									aria-label={linkText}
 								>{typeof logo === "string" ?
 									<Logo width={30} logoUrl={logo} /> :
 									logo

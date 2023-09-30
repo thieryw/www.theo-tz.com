@@ -22,6 +22,7 @@ export type FooterProps = {
 	socialMediaLinks?: ({
 		icon: ReactNode;
 		iconWidth?: number;
+		linkText?: string;
 	} & Link)[];
 
 	bottomDiv?: ReactNode;
@@ -91,14 +92,19 @@ export const Footer = memo((props: FooterProps) => {
 				<div className={classes.socialLinks}>
 					{
 						socialMediaLinks !== undefined &&
-						socialMediaLinks.map(({ onClick, href, icon, iconWidth }) =>
-							<div key={href} className={classes.socialLink} onClick={onClick ?? (() => window.location.href = href)}>
+						socialMediaLinks.map(({ onClick, href, icon, iconWidth, linkText }) =>
+							<a 
+								aria-label={linkText} 
+								onClick={onClick} 
+								href={href} 
+								key={href} 
+								className={classes.socialLink}>
 								{
 									typeof icon === "string" ?
 										<Logo width={iconWidth ?? 20} logoUrl={icon} /> :
 										icon
 								}
-							</div>
+							</a>
 						)
 					}
 				</div>

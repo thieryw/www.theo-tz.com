@@ -25,6 +25,7 @@ import mailIconUrl from "./assets/svg/mail.svg";
 import MuiLink from "@mui/material/Link";
 import { Header } from "components/Header";
 import { useConstCallback } from "powerhooks/useConstCallback";
+import { Legal } from "pages/Legal";
 
 
 export function App() {
@@ -34,7 +35,7 @@ export function App() {
   const context = useContext(ScrollContext);
 
 
-  const scrollToTop = useConstCallback(()=>{
+  const scrollToTop = useConstCallback(() => {
     console.log("ok");
     context?.scrollToTop();
   })
@@ -76,90 +77,91 @@ export function App() {
 
 
   return (
-      <div className={classes.root}>
-        {
-          route.name !== "home" &&
-          <div onClick={scrollToTop} className={classes.homeLink}>
-            <a {...routes.home().link}><img className={classes.homeLinkImg} alt="Return to home page" src={smallSignature} /></a>
+    <div className={classes.root}>
+      {
+        route.name !== "home" &&
+        <div onClick={scrollToTop} className={classes.homeLink}>
+          <a {...routes.home().link}><img className={classes.homeLinkImg} alt="Return to home page" src={smallSignature} /></a>
 
-          </div>
-        }
-        <Header
-          links={links}
-          title={<img className={classes.logo} src={signature} alt="logo" />}
-          logoLinks={
-            [
-              {
-                "href": "https://www.facebook.com/theotzelepoglouphotography/",
-                "logo": facebookIconUrl,
-                "linkText": "Link to Facebook"
-              },
-              {
-                "href": "https://www.instagram.com/theo_tz_wildlife/",
-                "logo": instagramIconUrl,
-                "linkText": "Link to Instagram"
-              },
-              {
-                "href": "mailto:theo.tzelepoglou@gmail.com",
-                "logo": mailIconUrl,
-                "linkText": "Mail link"
-              }
-            ]
-          }
-          className={classes.header}
-        />
-        <div className={classes.body}>
-          {route.name === "home" && <Home />}
-          {groups.naturalism.has(route) && <Naturalism route={route} />}
-          {groups.portraits.has(route) && <Portraits route={route} />}
-          {groups.events.has(route) && <Events route={route} />}
-          {route.name === "urban" && <Urbain />}
-          {route.name === "auteur" && <Biography />}
-          {route.name === "reportage" && <Reportages />}
-          {route.name === "brameCerf" && <BrameCerf />}
-          {route.name === "dolphin" && <Dolphin />}
-          {route.name === "papetier" && <Papetier />}
-          {route.name === "wolf" && <WolfDordogne />}
-          {route.name === "pandemic" && <Pandemic />}
-          {route.name === "climat" && <ClimateMarch />}
         </div>
-        <Footer
-          className={classes.footer}
-
-
-          title={<a {...routes.home().link}><img onClick={scrollToTop} className={classes.signatureFooter} src={signature} alt="logo signature" /></a>}
-          socialMediaLinks={[
+      }
+      <Header
+        links={links}
+        title={<img className={classes.logo} src={signature} alt="logo" />}
+        logoLinks={
+          [
             {
               "href": "https://www.facebook.com/theotzelepoglouphotography/",
-              "icon": facebookIconUrl,
-              "iconWidth": 30,
+              "logo": facebookIconUrl,
               "linkText": "Link to Facebook"
             },
             {
               "href": "https://www.instagram.com/theo_tz_wildlife/",
-              "icon": instagramIconUrl,
-              "iconWidth": 30,
+              "logo": instagramIconUrl,
               "linkText": "Link to Instagram"
             },
             {
               "href": "mailto:theo.tzelepoglou@gmail.com",
-              "icon": mailIconUrl,
-              "iconWidth": 30,
+              "logo": mailIconUrl,
               "linkText": "Mail link"
             }
-          ]}
-
-          bottomDiv={
-            <div className={classes.bottomDiv}>
-              <MuiLink className={classes.legal} {...routes.legal().link}><Text className={cx(classes.legalText, classes.bottomDivElement)} typo="label 2">{t("legal")}</Text></MuiLink>
-              <Text className={classes.bottomDivElement} typo="label 2">{t("copyRight")}</Text>
-              <Text className={classes.bottomDivElement} typo="label 2">{t("design")}</Text>
-            </div>
-          }
-        />
-
-
+          ]
+        }
+        className={classes.header}
+      />
+      <div className={classes.body}>
+        {route.name === "home" && <Home />}
+        {groups.naturalism.has(route) && <Naturalism route={route} />}
+        {groups.portraits.has(route) && <Portraits route={route} />}
+        {groups.events.has(route) && <Events route={route} />}
+        {route.name === "urban" && <Urbain />}
+        {route.name === "auteur" && <Biography />}
+        {route.name === "reportage" && <Reportages />}
+        {route.name === "brameCerf" && <BrameCerf />}
+        {route.name === "dolphin" && <Dolphin />}
+        {route.name === "papetier" && <Papetier />}
+        {route.name === "wolf" && <WolfDordogne />}
+        {route.name === "pandemic" && <Pandemic />}
+        {route.name === "climat" && <ClimateMarch />}
+        {route.name === "legal" && <Legal />}
       </div>
+      <Footer
+        className={classes.footer}
+
+
+        title={<a {...routes.home().link}><img onClick={scrollToTop} className={classes.signatureFooter} src={signature} alt="logo signature" /></a>}
+        socialMediaLinks={[
+          {
+            "href": "https://www.facebook.com/theotzelepoglouphotography/",
+            "icon": facebookIconUrl,
+            "iconWidth": 30,
+            "linkText": "Link to Facebook"
+          },
+          {
+            "href": "https://www.instagram.com/theo_tz_wildlife/",
+            "icon": instagramIconUrl,
+            "iconWidth": 30,
+            "linkText": "Link to Instagram"
+          },
+          {
+            "href": "mailto:theo.tzelepoglou@gmail.com",
+            "icon": mailIconUrl,
+            "iconWidth": 30,
+            "linkText": "Mail link"
+          }
+        ]}
+
+        bottomDiv={
+          <div className={classes.bottomDiv}>
+            <MuiLink className={classes.legal} {...routes.legal().link}><Text className={cx(classes.legalText, classes.bottomDivElement)} typo="label 2">{t("legal")}</Text></MuiLink>
+            <Text className={classes.bottomDivElement} typo="label 2">{t("copyRight")}</Text>
+            <Text className={classes.bottomDivElement} typo="label 2">{t("design")}</Text>
+          </div>
+        }
+      />
+
+
+    </div>
   );
 }
 

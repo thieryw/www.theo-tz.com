@@ -255,7 +255,7 @@ const useStyles = makeStyles<{ numberOfSlides: number }>()((theme, { numberOfSli
 			"display": "flex",
 			"justifyContent": "center",
 			"alignItems": "center",
-			"marginTop": theme.spacing(7),
+			"marginTop": theme.spacing(9),
 			...(theme.windowInnerWidth < breakpointsValues.md ? {
 				"display": "none"
 

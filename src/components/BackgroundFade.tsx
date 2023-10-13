@@ -41,7 +41,7 @@ const useStyles = makeStyles<{
 }>()(
 	(theme, {backgroundImageUrl, fadeDirection}) => ({
 		"root": {
-			"width": theme.windowInnerWidth,
+			"width": "100%",
 			"height": "100%",
 			"position": "absolute",
 			"top": 0,

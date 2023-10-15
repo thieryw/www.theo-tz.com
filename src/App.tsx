@@ -153,7 +153,9 @@ export function App() {
 
         bottomDiv={
           <div className={classes.bottomDiv}>
-            <MuiLink className={classes.legal} {...routes.legal().link}><Text className={cx(classes.legalText, classes.bottomDivElement)} typo="label 2">{t("legal")}</Text></MuiLink>
+            <div onClick={scrollToTop}>
+              <MuiLink className={classes.legal} {...routes.legal().link}><Text className={cx(classes.legalText, classes.bottomDivElement)} typo="label 2">{t("legal")}</Text></MuiLink>
+            </div>
             <Text className={classes.bottomDivElement} typo="label 2">{t("copyRight")}</Text>
             <Text className={classes.bottomDivElement} typo="label 2">{t("design")}</Text>
           </div>
@@ -211,11 +213,14 @@ const useStyles = makeStyles()((theme) => {
     },
     "legal": {
       "textDecoration": "none",
+      ":hover": {
+        "textDecoration": "none",
+      }
     },
     "legalText": {
       "transition": "color 500ms",
       ":hover": {
-        "color": theme.colors.useCases.typography.textPrimary,
+        "color": theme.colors.palette.light.greyVariant1,
       }
     },
     "footer": {

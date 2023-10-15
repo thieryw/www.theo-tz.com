@@ -27,7 +27,9 @@ export function CardLink(props: CardLinkProps) {
 			}
 			{
 				title !== undefined &&
-				<Text className={classes.title} typo="my h3">{title}</Text>
+				<a className={classes.titleLink} {...link}>
+					<Text className={classes.title} typo="my h3">{title}</Text>
+				</a>
 			}
 		</div>
 		{
@@ -75,6 +77,10 @@ const useStyles = makeStyles()(theme => {
 			"textTransform": "uppercase",
 			"position": "relative",
 			"zIndex": 2
+		},
+		"titleLink": {
+			"textDecoration": "none"
+
 		},
 		"cardNumber": {
 			"position": "absolute",

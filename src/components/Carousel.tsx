@@ -164,6 +164,18 @@ export const Carousel = (props: CarouselProps) => {
 
 	return (
 		<div className={cx(classes.root, className)}>
+
+			<div className={classes.navigationTools}>
+				<div className={classes.arrows}>
+					<ArrowBackIcon className={cx(classes.arrow, classes.back)} onClick={navigateFactory("back")} />
+					<ArrowForwardIcon className={cx(classes.arrow, classes.forwards)} onClick={navigateFactory("forwards")} />
+				</div>
+				<div className={classes.percentageBar}>
+					<div ref={percentageBarRef} className={classes.percentageBarInner}></div>
+
+				</div>
+
+			</div>
 			<div
 				ref={carouselRef}
 				className={classes.carousel}
@@ -225,17 +237,6 @@ export const Carousel = (props: CarouselProps) => {
 
 			</div>
 
-			<div className={classes.navigationTools}>
-				<div className={classes.arrows}>
-					<ArrowBackIcon className={cx(classes.arrow, classes.back)} onClick={navigateFactory("back")} />
-					<ArrowForwardIcon className={cx(classes.arrow, classes.forwards)} onClick={navigateFactory("forwards")} />
-				</div>
-				<div className={classes.percentageBar}>
-					<div ref={percentageBarRef} className={classes.percentageBarInner}></div>
-
-				</div>
-
-			</div>
 		</div>
 	);
 };
@@ -255,7 +256,8 @@ const useStyles = makeStyles<{ numberOfSlides: number }>()((theme, { numberOfSli
 			"display": "flex",
 			"justifyContent": "center",
 			"alignItems": "center",
-			"marginTop": theme.spacing(9),
+			"marginBottom": theme.spacing(8),
+			//"marginTop": theme.spacing(9),
 			...(theme.windowInnerWidth < breakpointsValues.md ? {
 				"display": "none"
 

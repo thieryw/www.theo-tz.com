@@ -270,6 +270,7 @@ const useStyles = makeStyles()(theme => {
 			"textTransform": "capitalize"
 		},
 		"photographer": {
+			"fontStyle": "italic"
 		},
 		"linkWrapper": {
 			"display": "flex",

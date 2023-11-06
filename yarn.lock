@@ -6428,10 +6428,10 @@ github-from-package@0.0.0:
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
   integrity sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==
 
-github-pages-plugin-for-type-route@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-0.1.1.tgz#a06fda3b7907cce9f5f77f3a32afed0c98d91237"
-  integrity sha512-L0oiRrc5GTCE055s/BymnJyPU5ipV0tNCY6hJR5xCUqtaOe4+RZAFhARqO9vlfanjZGOM8rM4Eqvgs8fewwqTQ==
+github-pages-plugin-for-type-route@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/github-pages-plugin-for-type-route/-/github-pages-plugin-for-type-route-1.0.0.tgz#c421bcb08be2491fc3853cb9865a6cc419c9ac74"
+  integrity sha512-p3ENQMkJibD8bD+L5bzQuqK2mkgzBCgEjyLBO2Qb/YWAnsWRPu2zVXumm9Kg2vIb0xog/VXP1EZTJJc8VkCmhA==
 
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"

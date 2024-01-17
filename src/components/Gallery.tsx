@@ -1,6 +1,8 @@
 import { ArtGallery } from "react-art-gallery";
 import { generateLightboxImgSources, generateThumbnailImgSources } from "tools/generateImgSource";
 import { breakpointsValues } from "theme";
+import { useState } from "react";
+
 
 type File = Record<string, {
 	files: {
@@ -26,9 +28,13 @@ export type GalleryProps = {
 
 export function Gallery(props: GalleryProps) {
 	const { jpg, webp } = props;
+	const [webpFiles] = useState(Object.entries(webp).sort((a, b) => parseFloat(a[0]) - parseFloat(b[0])))
+	const [jpegFiles] = useState(Object.entries(jpg).sort((a, b) => parseFloat(a[0]) - parseFloat(b[0])))
+
+
 
 	return <ArtGallery
-		images={Object.values(webp).map((value, index) => {
+		images={webpFiles.map(([_key, value], index) => {
 			return {
 				"thumbNail": {
 					"src": value.files.miniature.url,
@@ -40,8 +46,8 @@ export function Gallery(props: GalleryProps) {
 					"sources": generateLightboxImgSources(
 						value.files.large.url,
 						value.files.medium.url,
-						Object.values(jpg)[index].files.large.url,
-						Object.values(jpg)[index].files.medium.url,
+						jpegFiles[index][1].files.large.url,
+						jpegFiles[index][1].files.medium.url,
 					)
 				}
 			}

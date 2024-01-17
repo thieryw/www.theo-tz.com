@@ -9,7 +9,7 @@ generateMediaFile({
 });
 
 generateMediaFile({
-	"acceptedFileExtensions": [".jpg"],
+	"acceptedFileExtensions": [".jpg", ".jpeg"],
 	"mediaPath": join(__dirname, "..", "assets", "img", "gallery"),
 	"generatedFilePath": join(__dirname, ".."),
 	"generatedFileName": "generatedImgExports"
@@ -25,7 +25,7 @@ generateMediaFile({
 });
 
 generateMediaFile({
-	"acceptedFileExtensions": [".jpg"],
+	"acceptedFileExtensions": [".jpg", ".jpeg"],
 	"mediaPath": join(__dirname, "..", "assets", "img", "home"),
 	"generatedFilePath": join(__dirname, ".."),
 	"generatedFileName": "generatedHomeImgExports"

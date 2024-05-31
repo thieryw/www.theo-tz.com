@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.8ad81139.js",
+    "main.js": "/static/js/main.64f4eb79.js",
     "static/media/large_10.jpg": "/static/media/large_10.40e24d3cf03e5353724b.jpg",
     "static/media/large_13.jpg": "/static/media/large_13.24275b0bb336f1d2adc3.jpg",
     "static/media/large_10.webp": "/static/media/large_10.2f55ecfe1321f7a54b7a.webp",
@@ -189,7 +189,7 @@
     "static/media/large_Anduze1092_1.jpg": "/static/media/large_Anduze1092_1.5b9ce8e531a04970b8e1.jpg",
     "static/media/large_Anduze_TTZ_120.jpg": "/static/media/large_Anduze_TTZ_120.a8c3f44c5ed75edadea4.jpg",
     "static/media/medium_26.jpg": "/static/media/medium_26.61d82ed44bccc398313b.jpg",
-    "static/media/large_37.jpg": "/static/media/large_37.ca372ad51867c44088e5.jpg",
+    "static/media/large_37.jpg": "/static/media/large_37.6366e125ff4aca04d0ab.jpg",
     "static/media/large_Anduze_TTZ_73.webp": "/static/media/large_Anduze_TTZ_73.fec8cd646aee9f976595.webp",
     "static/media/large_34.jpg": "/static/media/large_34.061925277e0e59cda519.jpg",
     "static/media/large_44.jpg": "/static/media/large_44.b8886c27a43964e98090.jpg",
@@ -407,7 +407,7 @@
     "static/media/large_TTZ_1030.jpg": "/static/media/large_TTZ_1030.79099c115f7dc6a6b515.jpg",
     "static/media/large_TTZ_6384.jpg": "/static/media/large_TTZ_6384.967b4b5008874594b63f.jpg",
     "static/media/medium_Anduze_TTZ_59.jpg": "/static/media/medium_Anduze_TTZ_59.20eace48ec0fe552326b.jpg",
-    "static/media/large_37.webp": "/static/media/large_37.3082a3af5bf29556e549.webp",
+    "static/media/large_37.webp": "/static/media/large_37.533a41f09f76766ec97f.webp",
     "static/media/large_Anduze912_1.jpg": "/static/media/large_Anduze912_1.de5dde8357b51fd8cb06.jpg",
     "static/media/large_10-.webp": "/static/media/large_10-.bffd2e59e6d1164d47f8.webp",
     "static/media/medium_10-.webp": "/static/media/medium_10-.bffd2e59e6d1164d47f8.webp",
@@ -954,7 +954,7 @@
     "static/media/medium_Anduze_TTZ_41.jpg": "/static/media/medium_Anduze_TTZ_41.3b20b6be15645884d50d.jpg",
     "static/media/medium_Anduze202_1.jpg": "/static/media/medium_Anduze202_1.e948c83c2259a5f85390.jpg",
     "static/media/medium_Anduze_TTZ_85.jpg": "/static/media/medium_Anduze_TTZ_85.e7da465baab49ac82c22.jpg",
-    "static/media/medium_37.jpg": "/static/media/medium_37.485091f9f982f935d707.jpg",
+    "static/media/medium_37.jpg": "/static/media/medium_37.f0c1bd7b52f3cedad5ab.jpg",
     "static/media/medium_44.jpg": "/static/media/medium_44.141ec764a3541ca846b9.jpg",
     "static/media/medium_TTZ_2920.jpg": "/static/media/medium_TTZ_2920.ffad3dbc34c552d964ec.jpg",
     "static/media/medium_TTZ_3592.jpg": "/static/media/medium_TTZ_3592.013b88890ad5182786c4.jpg",
@@ -1313,7 +1313,7 @@
     "static/media/medium_TTZ_3136.jpg": "/static/media/medium_TTZ_3136.6b76ad1602920e06160d.jpg",
     "static/media/large_Anduze_TTZ_86.webp": "/static/media/large_Anduze_TTZ_86.771781db02fd084edfc2.webp",
     "static/media/medium_TTZ_1138.jpg": "/static/media/medium_TTZ_1138.5fc3dc5ea1ccaedb2756.jpg",
-    "static/media/medium_37.webp": "/static/media/medium_37.0eff87a579620c2dd81e.webp",
+    "static/media/medium_37.webp": "/static/media/medium_37.8d3ad7eb7485f6f3c60e.webp",
     "static/media/medium_45.jpg": "/static/media/medium_45.cdc47c203625d7ac19b4.jpg",
     "static/media/medium_Anduze582_1.webp": "/static/media/medium_Anduze582_1.5fd7294223e3dff23b07.webp",
     "static/media/medium_Anduze122_1.webp": "/static/media/medium_Anduze122_1.0e6198415526d317b8eb.webp",
@@ -2130,7 +2130,7 @@
     "static/media/miniature_Anduze242_1.jpg": "/static/media/miniature_Anduze242_1.bcbfc9e29ec9beda171a.jpg",
     "static/media/miniature_TTZ_3639.jpg": "/static/media/miniature_TTZ_3639.e69ea13cde4178244c34.jpg",
     "static/media/medium_TTZ_1077.webp": "/static/media/medium_TTZ_1077.720d0d203ca54271f20b.webp",
-    "static/media/miniature_37.jpg": "/static/media/miniature_37.83331c7dfefc031a7f3f.jpg",
+    "static/media/miniature_37.jpg": "/static/media/miniature_37.706f9c804c7170259870.jpg",
     "static/media/miniature_TTZ_6599.webp": "/static/media/miniature_TTZ_6599.191d7281476c3998db7c.webp",
     "static/media/miniature_17-.jpg": "/static/media/miniature_17-.aa9fa016b78819fdb067.jpg",
     "static/media/miniature_17.webp": "/static/media/miniature_17.6aea8f03dacf953c666e.webp",
@@ -2351,7 +2351,7 @@
     "static/media/miniature_Anduze_TTZ_7.webp": "/static/media/miniature_Anduze_TTZ_7.54c47ca28c2a5322829f.webp",
     "static/media/miniature_Anduze242_1.webp": "/static/media/miniature_Anduze242_1.8d73f459f3590e02fd53.webp",
     "static/media/miniature_56.webp": "/static/media/miniature_56.c429adac8d71c300d8ee.webp",
-    "static/media/miniature_37.webp": "/static/media/miniature_37.b1285bd40c4614acaeeb.webp",
+    "static/media/miniature_37.webp": "/static/media/miniature_37.2239004c98015656973d.webp",
     "static/media/miniature_TTZ_3108.webp": "/static/media/miniature_TTZ_3108.7a0ecb9a2cba4863ca8e.webp",
     "static/media/miniature_TTZ_3639.webp": "/static/media/miniature_TTZ_3639.045fc4f3305a7616aee8.webp",
     "static/media/miniature_58.jpg": "/static/media/miniature_58.5d525159c17917f8cf87.jpg",
@@ -2624,9 +2624,9 @@
     "static/media/next.svg": "/static/media/next.2dc7a76f28f4feac65e5d1d0b70e240b.svg",
     "static/media/mail.svg": "/static/media/mail.77b221170a3b3361e95dbf5991a29783.svg",
     "static/media/facebook.svg": "/static/media/facebook.49d2918de98c6eb83c4a3215884fdd57.svg",
-    "main.8ad81139.js.map": "/static/js/main.8ad81139.js.map"
+    "main.64f4eb79.js.map": "/static/js/main.64f4eb79.js.map"
   },
   "entrypoints": [
-    "static/js/main.8ad81139.js"
+    "static/js/main.64f4eb79.js"
   ]
 }

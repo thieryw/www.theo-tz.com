@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.8ca349b6.js",
+    "main.js": "/static/js/main.8ad81139.js",
     "static/media/large_10.jpg": "/static/media/large_10.40e24d3cf03e5353724b.jpg",
     "static/media/large_13.jpg": "/static/media/large_13.24275b0bb336f1d2adc3.jpg",
     "static/media/large_10.webp": "/static/media/large_10.2f55ecfe1321f7a54b7a.webp",
@@ -37,7 +37,6 @@
     "static/media/large_26.webp": "/static/media/large_26.942579e2152e3fa794b9.webp",
     "static/media/large_Anduze_TTZ_70.webp": "/static/media/large_Anduze_TTZ_70.e832b79be255e4b01178.webp",
     "static/media/large_5.webp": "/static/media/large_5.a35700b31e157b2c313d.webp",
-    "static/media/large_22.jpg": "/static/media/large_22.203f88c4b58e55849519.jpg",
     "static/media/large_0.9994.jpeg": "/static/media/large_0.9994.59eab758ecb70c695f5d.jpeg",
     "static/media/large_Anduze_TTZ_70.jpg": "/static/media/large_Anduze_TTZ_70.e7fc7c8347ece163d9d3.jpg",
     "static/media/large_17.jpg": "/static/media/large_17.98ddac371e4fc3e11266.jpg",
@@ -57,7 +56,6 @@
     "static/media/large_Anduze_TTZ_61.jpg": "/static/media/large_Anduze_TTZ_61.66d41683b94baa605b43.jpg",
     "static/media/large_25.jpg": "/static/media/large_25.15e07c5729f997ee042a.jpg",
     "static/media/large_56.webp": "/static/media/large_56.8475d117e7309a80d6c5.webp",
-    "static/media/large_22.webp": "/static/media/large_22.9d43281d2ad6844f4316.webp",
     "static/media/large_18.jpg": "/static/media/large_18.406070c9f49799ae3b44.jpg",
     "static/media/large_4.webp": "/static/media/large_4.d0148fc2b2722ad7e5cb.webp",
     "static/media/large_Anduze_TTZ_69.webp": "/static/media/large_Anduze_TTZ_69.b6515c1f3c43c88944e8.webp",
@@ -93,6 +91,7 @@
     "static/media/large_14.jpg": "/static/media/large_14.a2d76719682811adf1e9.jpg",
     "static/media/large_35.jpg": "/static/media/large_35.d4ef7a8e2d0433d4b1f9.jpg",
     "static/media/large_Anduze502_1.jpg": "/static/media/large_Anduze502_1.314504a3175738850239.jpg",
+    "static/media/large_22.jpg": "/static/media/large_22.203f88c4b58e55849519.jpg",
     "static/media/large_52.jpg": "/static/media/large_52.8886c49a2bf3eb0a1105.jpg",
     "static/media/large_16.jpg": "/static/media/large_16.59dd8654acae26bda0e3.jpg",
     "static/media/large_Anduze482_1.jpg": "/static/media/large_Anduze482_1.51e6c8038115c98ee0f6.jpg",
@@ -279,6 +278,7 @@
     "static/media/large_Anduze_TTZ_114.webp": "/static/media/large_Anduze_TTZ_114.c743e555323280f4becc.webp",
     "static/media/large_Anduze1102_1.webp": "/static/media/large_Anduze1102_1.b98b8ebe9b8595ab915a.webp",
     "static/media/large_Anduze_TTZ_96.jpg": "/static/media/large_Anduze_TTZ_96.ae7eb4160b8b10e4fb13.jpg",
+    "static/media/large_22.webp": "/static/media/large_22.9d43281d2ad6844f4316.webp",
     "static/media/large_TTZ_3317.webp": "/static/media/large_TTZ_3317.106629a9c5f2f769a52b.webp",
     "static/media/medium_25.jpg": "/static/media/medium_25.bfe3a4c599344b60b2e1.jpg",
     "static/media/large_Anduze152_1.webp": "/static/media/large_Anduze152_1.d69fe01b4533f72626b7.webp",
@@ -490,7 +490,6 @@
     "static/media/medium_Anduze322_1.jpg": "/static/media/medium_Anduze322_1.d600a06f676281bd35df.jpg",
     "static/media/medium_Anduze_TTZ_59.webp": "/static/media/medium_Anduze_TTZ_59.88ea4fa85f56b8ca51e3.webp",
     "static/media/medium_Anduze982_1.jpg": "/static/media/medium_Anduze982_1.184daf8db8e558efd3e6.jpg",
-    "static/media/medium_22.jpg": "/static/media/medium_22.6e98dc71b0c49c05a402.jpg",
     "static/media/large_Anduze352_1.webp": "/static/media/large_Anduze352_1.d34694523a4918a2148f.webp",
     "static/media/large_54.jpg": "/static/media/large_54.9a465da7530bccd8d271.jpg",
     "static/media/medium_Anduze_TTZ_60.jpg": "/static/media/medium_Anduze_TTZ_60.d407bc220eb2a125154d.jpg",
@@ -501,6 +500,7 @@
     "static/media/medium_TTZ_2943.webp": "/static/media/medium_TTZ_2943.1a4b12c3707b01ca028e.webp",
     "static/media/large_Anduze_TTZ_36.jpg": "/static/media/large_Anduze_TTZ_36.12f2908816d13c81d5b7.jpg",
     "static/media/large_53.jpg": "/static/media/large_53.782797b691bddfc4f77b.jpg",
+    "static/media/medium_22.jpg": "/static/media/medium_22.6e98dc71b0c49c05a402.jpg",
     "static/media/medium_Anduze_TTZ_96.jpg": "/static/media/medium_Anduze_TTZ_96.558505fcb8932aa1ea16.jpg",
     "static/media/medium_3.jpg": "/static/media/medium_3.6d6f9d4bae2bd57555b4.jpg",
     "static/media/medium_Anduze842_1.jpg": "/static/media/medium_Anduze842_1.dc230c1582d1348ea5a3.jpg",
@@ -641,7 +641,6 @@
     "static/media/large_Anduze_TTZ_72.webp": "/static/media/large_Anduze_TTZ_72.a1b87f5e974a370c48ba.webp",
     "static/media/large_Anduze_TTZ_25.jpg": "/static/media/large_Anduze_TTZ_25.4667353b4f4482ede5f4.jpg",
     "static/media/large_TTZ_2859.webp": "/static/media/large_TTZ_2859.7061d6a269d5e0f12fda.webp",
-    "static/media/medium_22.webp": "/static/media/medium_22.ec410e056783cbbcff05.webp",
     "static/media/medium_TTZ_6549.jpg": "/static/media/medium_TTZ_6549.8a994ea0f2ecda3eec97.jpg",
     "static/media/large_TTZ_2990.jpg": "/static/media/large_TTZ_2990.34636b7684b3455c8260.jpg",
     "static/media/large_TTZ_6611.webp": "/static/media/large_TTZ_6611.5692d052600348ddf358.webp",
@@ -826,6 +825,7 @@
     "static/media/large_5-.jpg": "/static/media/large_5-.7bfa498ea8cedc83f19f.jpg",
     "static/media/medium_5-.jpg": "/static/media/medium_5-.7bfa498ea8cedc83f19f.jpg",
     "static/media/large_43.jpg": "/static/media/large_43.5dd2be0c8ce71c1fb649.jpg",
+    "static/media/medium_22.webp": "/static/media/medium_22.ec410e056783cbbcff05.webp",
     "static/media/medium_Anduze_TTZ_115.jpg": "/static/media/medium_Anduze_TTZ_115.6e9d12aa3924c9253b64.jpg",
     "static/media/medium_Anduze62_1.jpg": "/static/media/medium_Anduze62_1.07ed5f92fae1e394c735.jpg",
     "static/media/medium_16.jpg": "/static/media/medium_16.913fc130104a9b6bd3af.jpg",
@@ -2624,9 +2624,9 @@
     "static/media/next.svg": "/static/media/next.2dc7a76f28f4feac65e5d1d0b70e240b.svg",
     "static/media/mail.svg": "/static/media/mail.77b221170a3b3361e95dbf5991a29783.svg",
     "static/media/facebook.svg": "/static/media/facebook.49d2918de98c6eb83c4a3215884fdd57.svg",
-    "main.8ca349b6.js.map": "/static/js/main.8ca349b6.js.map"
+    "main.8ad81139.js.map": "/static/js/main.8ad81139.js.map"
   },
   "entrypoints": [
-    "static/js/main.8ca349b6.js"
+    "static/js/main.8ad81139.js"
   ]
 }

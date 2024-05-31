@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.35ebb017.js",
+    "main.js": "/static/js/main.8ca349b6.js",
     "static/media/large_10.jpg": "/static/media/large_10.40e24d3cf03e5353724b.jpg",
     "static/media/large_13.jpg": "/static/media/large_13.24275b0bb336f1d2adc3.jpg",
     "static/media/large_10.webp": "/static/media/large_10.2f55ecfe1321f7a54b7a.webp",
@@ -15,14 +15,12 @@
     "static/media/large_15.jpg": "/static/media/large_15.69ae52ffc962bd2e5a0c.jpg",
     "static/media/large_0.9999.jpeg": "/static/media/large_0.9999.010124475ee66ce0e630.jpeg",
     "static/media/large_15.webp": "/static/media/large_15.52016f03bc46045343b2.webp",
-    "static/media/large_21.jpg": "/static/media/large_21.a4c741c0b9dcd8de1e36.jpg",
     "static/media/large_7.jpg": "/static/media/large_7.c4c18fea4bff0e8a773d.jpg",
     "static/media/large_19.jpg": "/static/media/large_19.42ca0af9e16ae90ea6cd.jpg",
     "static/media/large_2.jpg": "/static/media/large_2.050eaf302321442221be.jpg",
     "static/media/large_0.9999.webp": "/static/media/large_0.9999.33f7649f4e241d478770.webp",
     "static/media/large_11.webp": "/static/media/large_11.d5b727740a025feb7458.webp",
     "static/media/large_12.jpg": "/static/media/large_12.46805697a99d3f131288.jpg",
-    "static/media/large_21.webp": "/static/media/large_21.841241d546207a3ba335.webp",
     "static/media/large_2.webp": "/static/media/large_2.89d4f88f881bd00a87f8.webp",
     "static/media/large_19.webp": "/static/media/large_19.ceea47b6d32605528b4e.webp",
     "static/media/large_60.jpg": "/static/media/large_60.b21121b348ca8d9816da.jpg",
@@ -71,6 +69,7 @@
     "static/media/large_Anduze442_1.webp": "/static/media/large_Anduze442_1.0dff5547098186eba960.webp",
     "static/media/large_39.jpg": "/static/media/large_39.f244c8f9450f6bb0b134.jpg",
     "static/media/large_18.webp": "/static/media/large_18.c35edd84077b726f054d.webp",
+    "static/media/large_21.jpg": "/static/media/large_21.a4c741c0b9dcd8de1e36.jpg",
     "static/media/large_63.webp": "/static/media/large_63.a016f6a782e898a7b423.webp",
     "static/media/large_30.jpg": "/static/media/large_30.430b7e64cce35b935ddc.jpg",
     "static/media/large_6.webp": "/static/media/large_6.a6659930e631c6fee315.webp",
@@ -152,6 +151,7 @@
     "static/media/medium_55.jpg": "/static/media/medium_55.c2678d31bb77d9d9b91d.jpg",
     "static/media/medium_Anduze_TTZ_61.webp": "/static/media/medium_Anduze_TTZ_61.4868fa7fcb2fb88149b3.webp",
     "static/media/large_TTZ_2943.jpg": "/static/media/large_TTZ_2943.7889e5c8ce6b6130b7b9.jpg",
+    "static/media/large_21.webp": "/static/media/large_21.841241d546207a3ba335.webp",
     "static/media/medium_Anduze_TTZ_62.jpg": "/static/media/medium_Anduze_TTZ_62.ab4d9834107c0fd2d190.jpg",
     "static/media/medium_Anduze_TTZ_71.webp": "/static/media/medium_Anduze_TTZ_71.b52ada4b40376393b019.webp",
     "static/media/large_48.webp": "/static/media/large_48.f765e6912d03eb5f88b5.webp",
@@ -239,7 +239,6 @@
     "static/media/large_Anduze552_1.jpg": "/static/media/large_Anduze552_1.a5714bbf547c1d61cf08.jpg",
     "static/media/large_23.webp": "/static/media/large_23.e835af685b09e2c3b2a1.webp",
     "static/media/large_Anduze_TTZ_121.jpg": "/static/media/large_Anduze_TTZ_121.bc224e97b081cd8d1188.jpg",
-    "static/media/medium_21.jpg": "/static/media/medium_21.a0639683b319ade5d164.jpg",
     "static/media/medium_4.jpg": "/static/media/medium_4.f91a935739b3f36d4684.jpg",
     "static/media/large_Anduze362_1.jpg": "/static/media/large_Anduze362_1.0ea28fa3172f891968c5.jpg",
     "static/media/large_27.webp": "/static/media/large_27.1cf9d74f15d69625a7cc.webp",
@@ -265,7 +264,6 @@
     "static/media/medium_Anduze_TTZ_3.jpg": "/static/media/medium_Anduze_TTZ_3.6f4322c3331a77ec7c15.jpg",
     "static/media/large_8-.jpg": "/static/media/large_8-.3c8faa441352dfb38c6f.jpg",
     "static/media/medium_8-.jpg": "/static/media/medium_8-.3c8faa441352dfb38c6f.jpg",
-    "static/media/medium_21.webp": "/static/media/medium_21.67f70be54b4ce3ad1282.webp",
     "static/media/large_Anduze722_1.webp": "/static/media/large_Anduze722_1.ec7d81d8e9eff1c2374f.webp",
     "static/media/large_Anduze792_1.jpg": "/static/media/large_Anduze792_1.2b8adae340522659d2ea.jpg",
     "static/media/large_Anduze362_1.webp": "/static/media/large_Anduze362_1.398c0601fcaa9f29aea6.webp",
@@ -330,6 +328,7 @@
     "static/media/large_TTZ_1330.webp": "/static/media/large_TTZ_1330.34b3b6c8b8e9125eb974.webp",
     "static/media/medium_2.jpg": "/static/media/medium_2.5c3f9eba2d3087baff7d.jpg",
     "static/media/medium_Anduze562_1.webp": "/static/media/medium_Anduze562_1.ee97ada968f06e4d0ae6.webp",
+    "static/media/medium_21.jpg": "/static/media/medium_21.a0639683b319ade5d164.jpg",
     "static/media/medium_Anduze672_1.jpg": "/static/media/medium_Anduze672_1.465fd3e68bb9dfc69ec2.jpg",
     "static/media/large_TTZ_2989.jpg": "/static/media/large_TTZ_2989.f2e75ac879f42628b3e2.jpg",
     "static/media/medium_Anduze_TTZ_66.webp": "/static/media/medium_Anduze_TTZ_66.e0735cf3cf6734f8506f.webp",
@@ -546,6 +545,7 @@
     "static/media/medium_Anduze1092_1.jpg": "/static/media/medium_Anduze1092_1.561100de6dde2219dd13.jpg",
     "static/media/large_Anduze_TTZ_96.webp": "/static/media/large_Anduze_TTZ_96.152b4ed57766ae669a62.webp",
     "static/media/large_40.jpg": "/static/media/large_40.68f4c52dd90814f3e05d.jpg",
+    "static/media/medium_21.webp": "/static/media/medium_21.67f70be54b4ce3ad1282.webp",
     "static/media/large_TTZ_6602.jpg": "/static/media/large_TTZ_6602.e204681fe67dff03d9b2.jpg",
     "static/media/large_Anduze942_1.jpg": "/static/media/large_Anduze942_1.386b3b6e4c1c2dbeb227.jpg",
     "static/media/medium_6.webp": "/static/media/medium_6.a6659930e631c6fee315.webp",
@@ -2624,9 +2624,9 @@
     "static/media/next.svg": "/static/media/next.2dc7a76f28f4feac65e5d1d0b70e240b.svg",
     "static/media/mail.svg": "/static/media/mail.77b221170a3b3361e95dbf5991a29783.svg",
     "static/media/facebook.svg": "/static/media/facebook.49d2918de98c6eb83c4a3215884fdd57.svg",
-    "main.35ebb017.js.map": "/static/js/main.35ebb017.js.map"
+    "main.8ca349b6.js.map": "/static/js/main.8ca349b6.js.map"
   },
   "entrypoints": [
-    "static/js/main.35ebb017.js"
+    "static/js/main.8ca349b6.js"
   ]
 }

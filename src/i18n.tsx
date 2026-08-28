@@ -37,7 +37,7 @@ export const {
 		"fr": {
 			"App": {
 				"home": "ACCUEIL",
-				"journalism": "REPORTAGES",
+				"journalism": "ARTICLES DE PRESSE",
 				"naturalism": "NATURALISME",
 				"events": "EVENEMENTS",
 				"portraits": "PORTRAITS",
@@ -94,7 +94,7 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"exploreButton": "EXPLORER",
 				"naturTitle": "Naturalisme",
 				"naturParagraph": "la vie sauvage est surprenante tant par sa diversité que par les incroyables similitudes qu’elle partage avec l’Homme. Lors de mes premières observations naturalistes, j’étais fasciné par ce monde merveilleux me paraissant difficilement accessible.",
-				"articleTitle": "Reportages",
+				"articleTitle": "ARTICLES DE PRESSE",
 				"articleParagraph": "Textes et photos parus dans la presse.",
 				"eventTitle": "Evenements",
 				"eventParagraph": "Clichés réalisés dans le cadre de festivals de danse, de musique, et de tout autre évènement en lien avec l'art ou l'écologie.",
@@ -117,7 +117,8 @@ Par la suite, mon attrait pour sensibiliser et transmettre m’a conduit au mét
 				"climateMarchTitle": "Marche pour le climat",
 				"climateMarchParagraph": "",
 				"linkLabel": "EN SAVOIR PLUS",
-				"pageTitle": "REPORTAGES"
+				"pageTitle": "ARTICLES DE PRESSE",
+				"pressLink": "Retrouvez tous mes articles ici"
 			},
 			"Portraits": {
 				"annaJonatanTab": "Anna & Jonatan",

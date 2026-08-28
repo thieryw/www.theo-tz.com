@@ -16,6 +16,7 @@ import type { Link } from "../tools/link";
 import { makeStyles, Text } from "../theme";
 import { declareComponentKeys, useTranslation } from "../i18n";
 import { routes } from "../router";
+import { LinkButton } from "../components/LinkButton";
 
 export function Reportages() {
 	const { classes } = useStyles();
@@ -71,12 +72,16 @@ export function Reportages() {
 		},
 	])
 	return <div className={classes.root}>
-		<Text className={classes.pageTitle} typo="page heading">{t("pageTitle")}</Text>
+		<div className={classes.titleAndLinkWrapper}>
+
+			<Text className={classes.pageTitle} typo="page heading">{t("pageTitle")}</Text>
+			<LinkButton label={t("pressLink")} link={{ "href": " https://ginkio.com/theo-tz" }} />
+		</div>
 		<Carousel
 			className={classes.carousel}
 			startingPercentage={20}
 			slides={
-				carouselDataRef.current.map(({jpeg, link, paragraph, title, webp }) => ({
+				carouselDataRef.current.map(({ jpeg, link, paragraph, title, webp }) => ({
 					"image": {
 						"src": webp,
 						"sources": [
@@ -92,7 +97,7 @@ export function Reportages() {
 					},
 					title,
 					paragraph,
-					"link":{
+					"link": {
 						...link,
 						"label": t("linkLabel")
 					}
@@ -116,11 +121,19 @@ const useStyles = makeStyles()(theme => {
 			"position": "relative",
 			"textAlign": "center",
 			"marginTop": theme.spacing(8),
-			"marginBottom": theme.spacing(9)
+			"marginBottom": theme.spacing(6)
 
 		},
 		"carousel": {
 			"marginBottom": theme.spacing(9)
+		},
+		"titleAndLinkWrapper": {
+			"marginBottom": theme.spacing(9),
+			"display": "flex",
+			"flexDirection": "column",
+			"alignItems": "center"
+
+
 		}
 	})
 })
@@ -139,7 +152,8 @@ export const { i18n } = declareComponentKeys<
 	"pandemicParagraph" |
 	"climateMarchTitle" |
 	"climateMarchParagraph" |
-	"pageTitle"
+	"pageTitle" |
+	"pressLink"
 
 
 >()({ Reportages });
